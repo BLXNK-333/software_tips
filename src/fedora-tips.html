@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <script src="vendor/js/color-modes.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Fedora Tips</title>
+
+
+    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/css/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="vendor/css/all.min.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet" />
+    <link href="vendor/css/navbar-fixed.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header -->
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top custom-navbar-color">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tips</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="fedora-tips.html">Fedora</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="git-tips.html">Git</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="python-tips.html">Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="regex-tips.html">Regex</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vim-tips.html">Vim</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 custom-search-input" type="search" placeholder="Search"
+                        aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main-->
+    <main class="container main-container">
+        <h1>Fedora Tips</h1>
+        <div class="indentation">
+            <p>Используется для установки сочетания клавиш для переключения между источниками ввода
+                (языками) в GNOME
+                Desktop на Linux. В данном случае сочетание клавиш установлено на <control>Shift_L.</control>
+            </p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<control>Shift_L']"</control></code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Используется для загрузки и автоматической установки иконок Papirus на вашем
+                Linux-устройстве.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">wget -qO- https://git.io/papirus-icon-theme-install | sh</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Разархивировать файлы из архива .tar / .tar.gz:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">tar -xvf archive.tar directory/</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <br>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">tar -xzvf archive.tar.gz directory/</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <br>
+            <p>Заархивировать файлы или директории .tar / .tar.gz:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">tar -cvf archive.tar file1 file2</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <br>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">tar -czvf archive.tar.gz directory_name</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <br>
+            <p class="inner-p">Список опций:</p>
+            <ul>
+                <li><span><code class="language-bash">-x</code></span>: Указывающая на операцию извлечения файлов из
+                    архива.</li>
+                <li><span><code class="language-bash">-v</code></span>: Включающая подробный вывод.</li>
+                <li><span><code class="language-bash">-z</code></span>: Которая указывает tar на использование gzip для
+                    распаковки архива.</li>
+                <li><span><code class="language-bash">-c</code></span>: Которая создает новый архив.</li>
+                <li><span><code class="language-bash">-f archive.tar</code></span>: Указывающая на файл архива, который
+                    нужно использовать.</li>
+                <li><span><code class="language-bash">directory/</code></span>: Путь к файлу или директории в архиве,
+                    который нужно извлечь.</li>
+            </ul>
+        </div>
+        <div class="indentation">
+            <p>Выведет список всех установленных пакетов ядра Linux. Опция <span><code
+                        class="language-bash">-qa</code></span> означает "query all" (запросить все).</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">rpm -qa kernel</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">или более быстрый вариант</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">find /boot/vmli*</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Найдет все файлы и директории, имена которых содержат "file-name".</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">find . -iname "*file-name*"</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <br>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">find ./ -type d -iname "directory"</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Список опций:</p>
+            <ul>
+                <li><span><code class="language-bash">./</code></span>: Это текущая рабочая директория, от которой
+                    начинается поиск.</li>
+                <li><span><code class="language-bash">-iname</code></span>: Фильтр имени, позволяет выполнить поиск без
+                    учета регистра символов.</li>
+                <li><span><code class="language-bash">-type d</code></span>: Указывает find искать только директории.
+                </li>
+            </ul>
+        </div>
+        <div class="indentation">
+            <p>Найдет все строки в файлах, которые содержат текст "Nordic-darker" в указанной
+                директории и её поддиректориях, игнорируя регистр символов, и выведет номера строк, где найдены
+                совпадения.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">grep -Irn "Nordic-darker" /path/to/directory</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Список опций:</p>
+            <ul>
+                <li><span><code class="language-bash">-I</code></span>: Игнорировать бинарные файлы.</li>
+                <li><span><code class="language-bash">-r</code></span>: Рекурсивный обход всех подкаталогов.</li>
+                <li><span><code class="language-bash">-n</code></span>: Выводит номера строк.</li>
+            </ul>
+        </div>
+        <div class="indentation">
+            <p>Изменяет владельца каталога /path/to/directory и всех его содержимых файлов и
+                подкаталогов на пользователя john.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo chown -Rv john /path/to/directory</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Список опций:</p>
+            <ul>
+                <li><span><code class="language-bash">-R</code></span>: Рекурсивно изменяет владельца указанного файла
+                    или каталога, включая все файлы и подкаталоги внутри него.</li>
+                <li><span><code class="language-bash">-v</code></span>: Выводит подробную информацию о действиях,
+                    выполняемых командой.</li>
+            </ul>
+        </div>
+        <div class="indentation">
+            <p>Чтобы рекурсивно изменить права доступа на <code class="language-bash">drwxr-xr-x</code></span> для
+                данной директории и всех её подкаталогов<span></p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">chmod -R 755 directory_name</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Список опций:</p>
+            <ul>
+                <li><span><code class="language-bash">-R</code></span>: Рекурсивно изменяет права, включая все файлы и
+                    подкаталоги внутри него.</li>
+                <li><span><code class="language-bash">755</code></span>: Этот код соответствует правам <code
+                        class="language-bash">drwxr-xr-x</code></span>, где 7
+                    означает, что владелец имеет полные права (rwx), а группа и другие пользователи имеют права только
+                    на чтение и выполнение (r-x).</li>
+                <li><span><code class="language-bash">700</code></span>: Владелец имеет полные права на чтение, запись и
+                    выполнение, а остальные пользователи не имеют никаких прав.</li>
+                <li><span><code class="language-bash">644</code></span>: Владелец имеет полные права на чтение и запись,
+                    а группа и остальные пользователи имеют только права на чтение.</li>
+                <li><span><code class="language-bash">777</code></span>: Все пользователи имеют полные права на чтение,
+                    запись и выполнение.</li>
+
+            </ul>
+        </div>
+        </div>
+        <div class="indentation">
+            <p>Система проверяет доступные обновления для всех установленных пакетов, но не загружает
+                или устанавливает их.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">dnf check-update</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Добавляет разрешение на доступ к указанной директории и устанавливает его в режим
+                "только для чтения" для приложения Audacious (пример).</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">flatpak --user override --filesystem=/home/blank/.local/share/icons/capitaine-cursors/:ro org.atheme.audacious</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Выведет список доступных драйверов 'nvidia', для версии '470xx'.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">dnf list available nvidia \*470xx\*</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <br>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">dnf list available "*470*" | grep rpmfusion</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Установит софт из flatpack одной командой (Fedora 40).</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">flatpak install -y com.github.jeromerobert.pdfarranger com.github.johnfactotum.Foliate com.github.tchx84.Flatseal com.mattjakeman.ExtensionManager com.poweriso.PowerISO com.todoist.Todoist com.vixalien.sticky io.crow_translate.CrowTranslate io.github.aandrew_me.ytdn org.atheme.audacious org.audacityteam.Audacity org.audacityteam.Audacity.Codecs org.gimp.GIMP org.gnome.FileRoller org.kde.kolourpaint org.kde.okular org.mozilla.Thunderbird org.onlyoffice.desktopeditors org.qbittorrent.qBittorrent org.telegram.desktop org.videolan.VLC</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Софт не из магазина одной командой.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">sudo dnf install neofetch inxi htop mc android-tools gnome-tweaks timeshift</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Установить кодеки в систему. Устанавливать после обновления пакетов.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf groupupdate sound-and-video</code></pre><button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Установка видеодрайвера для nvidia 740m.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">sudo dnf install xorg-x11-drv-nvidia-470xx akmod-nvidia-470xx</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Убрать разрыв картинки в vlc на Xorg.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">Video Settings &gt;&gt; Output &gt;&gt; X11 video output (XCB)</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Исправить ошибку с jspawnhelper в pycharm.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">Проблема с правами, установить версию с офф. сайта.</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Удалить снимок Timeshift, который не удаляется.</p>
+            <p>Сначала удалить снимок с тэгом <span><code class="language-bash">/@/var/lib/machines</code></span> в
+                терминале, затем его можно будет
+                удалить через del в timeshift. Полный путь до снимка можно посмотреть через интерфейс timeshift.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">blxnk@fedora: sudo btrfs subvol list /
+    [sudo] password for blank: 
+    ID 256 gen 12927 top level 5 path @log
+    ID 257 gen 12928 top level 5 path @home
+    ID 258 gen 12382 top level 5 path timeshift-btrfs/snapshots/2022-11-16_01-54-36/@
+    ID 259 gen 495 top level 258 path timeshift-btrfs/snapshots/2022-11-16_01-54-36/@/var/lib/machines
+    ID 262 gen 12382 top level 5 path timeshift-btrfs/snapshots/2022-11-16_03-00-01/@
+    ID 263 gen 12914 top level 5 path @
+    ID 270 gen 12382 top level 5 path timeshift-btrfs/snapshots/2022-11-23_03-00-01/@
+    ID 273 gen 12382 top level 5 path timeshift-btrfs/snapshots/2022-11-25_20-00-01/@
+    
+blxnk@fedora: sudo btrfs subvolume list / | grep '2022-11-16_01-54-36' 
+    [sudo] password for blank: 
+    ID 258 gen 12382 top level 5 path timeshift-btrfs/snapshots/2022-11-16_01-54-36/@
+    ID 259 gen 495 top level 258 path timeshift-btrfs/snapshots/2022-11-16_01-54-36/@/var/lib/machines
+
+blxnk@fedora: sudo btrfs subvolume delete /run/timeshift/backup/timeshift-btrfs/snapshots/2022-11-16_01-54-36/@/var/lib/machines
+    [sudo] password for blank: 
+    Delete subvolume (no-commit): '/run/timeshift/backup/timeshift-btrfs/snapshots/2022-11-16_01-54-36/@/var/lib/machines'</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Выведет информацию о текущем ядре по умолчанию на вашей системе.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo grubby --default-kernel</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Выведет информацию о всех доступных записях ядра на вашей системе.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo grubby --info=ALL</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Устанавливает ядро <span><code class="language-bash">kernel</code></span> в качестве
+                ядра по умолчанию.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo grubby --set-default kernel</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Пример:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">sudo grubby --set-default /boot/vmlinuz-6.1.9-200.fc37.x86_64</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Удаление записи о ядре из файла конфигурации загрузчика.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo grubby --remove-kernel="/boot/vmlinuz-6.2.7-200.fc37.x86_64" --update-kernel=ALL
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg</code></pre><button class="copy-button"><i
+                        class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Плагин <span><code class="language-bash">dnf-plugin-versionlock</code></span>
+                позволяет заблокировать версии пакетов, чтобы предотвратить их
+                автоматическое обновление через dnf. Это может быть полезно, если вам нужна стабильная версия пакета, и
+                вы не хотите, чтобы она обновлялась до более новой версии.</p>
+            <p>Для установки, выполните следующую команду:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">sudo dnf install python3-dnf-plugin-versionlock</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Добавить пакеты для заморозки, на примере драйверов nvidia:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">sudo dnf versionlock add akmod-nvidia-470xx.x86_64 nvidia-gpu-firmware.noarch nvidia-settings-470xx.x86_64 xorg-x11-drv-nvidia-470xx.x86_64 xorg-x11-drv-nvidia-470xx-kmodsrc.x86_64 xorg-x11-drv-nvidia-470xx-libs.x86_64</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Очистить список заблокированных пакетов:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo dnf versionlock clear</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Выводит список сетевых интерфейсов.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">nmcli d</code></pre><button class="copy-button"><i
+                        class="fas fa-copy"></i></button>
+            </div>
+            <p>Выводит подробный список сетевых интерфейсов.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">nmcli -o</code></pre><button class="copy-button"><i
+                        class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Выводит список установленных расширений.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">gnome-extensions list</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Список:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">caffeine@patapon.info
+appindicatorsupport@rgcjonas.gmail.com
+Vitals@CoreCoding.com
+just-perfection-desktop@just-perfection
+ProxySwitcher@flannaghan.com
+status-area-horizontal-spacing@mathematical.coffee.gmail.com
+drive-menu@gnome-shell-extensions.gcampax.github.com
+apps-menu@gnome-shell-extensions.gcampax.github.com
+background-logo@fedorahosted.org
+launch-new-instance@gnome-shell-extensions.gcampax.github.com
+places-menu@gnome-shell-extensions.gcampax.github.com
+window-list@gnome-shell-extensions.gcampax.github.com
+pomodoro@arun.codito.in</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+
+        </div>
+        <div class="indentation">
+            <p>Установит статический ip адресс из nmcli.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">nmcli con mod TP-LINK_53FE ifname wlp3s0f0 type wifi ipv4.addresses 192.168.0.2/24 ipv4.gateway 192.168.0.1 ipv4.dns "8.8.8.8 8.8.4.4" ipv4.method manual</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Включить или выключить wifi.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">nmcli radio wifi on</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <br>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">nmcli radio wifi off</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Перезагрузить службу NetworkManager.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo systemctl reload NetworkManager</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Команда <span><code class="language-bash">grub2-mkfont</code></span> используется для
+                создания файлов шрифтов в формате, который может использоваться загрузчиком GRUB 2. В вашем случае, вы
+                пытаетесь создать файл шрифта размером 16 пикселей из шрифта Liberation Sans.</p>
+            <p class="inner-p">Пример:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">grub2-mkfont --output=/home/blxnk/Downloads/liberationsans-regular16.pf2 --size=16 /usr/share/fonts/liberation-sans/LiberationSans-Regular.ttf</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Покажет общий объем дискового пространства, используемого системным журналом, и
+                разбивку использования по каждому журналу.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">journalctl --disk-usage</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Выведет последние записи журнала для службы Tor, а также любые сообщения об ошибках,
+                которые могут быть связаны с этой службой.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">journalctl -xeu tor.service</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Список опций:</p>
+            <ul>
+                <li><span><code class="language-bash">-xe</code></span>: Эти опции означают "последние записи журнала, а
+                    также любые сообщения об ошибке".</li>
+                <li><span><code class="language-bash">-u tor.service</code></span>: Фильтрует вывод журнала только для
+                    службы Tor.</li>
+            </ul>
+        </div>
+        <div class="indentation">
+            <p>Ускоряет <span><code class="language-bash">DNF</code></span>.</p>
+            <p class="inner-p">Открываем файл:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo nano /etc/dnf/dnf.conf</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Добавляем в конец файла следующие параметры:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">fastestmirror=True
+max_parallel_downloads=10
+defaultyes=True
+keepcache=True</code></pre><button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Выводит список пакетов, которые требуют наличие <span><code
+                        class="language-bash">python3-tkinter</code></span> для своей работы.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">dnf repoquery --whatrequires python3-tkinter</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Покажет список зависимостей пакета <span><code class="language-bash">python3-tkinter</code></span>.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">dnf deplist python3-tkinter</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p><b>Настройка прокификации через tor на Fedora 40.</b></p>
+            <ol>
+                <li>
+                    <p class="inner-p">Подключаем репозиторий Tor (В РФ TOR блокируют, поэтому пункт 1 пропускаем, потому что сервер с файлами не будет доступен):</p>
+                </li>
+                <div class="code-container">
+                    <pre class="code-block"><code class="language-bash">sudo nano /etc/yum.repos.d/tor.repo</code></pre>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <p class="inner-p">Вставить в файл и сохранить:</p>
+                <div class="code-container">
+                    <pre class="code-block"><code class="language-bash">[tor]
+name=Tor for Fedora $releasever - $basearch
+baseurl=https://rpm.torproject.org/fedora/$releasever/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://rpm.torproject.org/fedora/public_gpg.key
+cost=100</code></pre><button class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <li>
+                    <p class="inner-p">Устанавливаем пакеты Tor:</p>
+                </li>
+                <div class="code-container">
+                    <pre class="code-block"><code class="language-bash">sudo dnf install tor</code></pre><button
+                        class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <li>
+                    <p class="inner-p">Посещаем сайт, выбираем опцию "None" и получаем список мостов:</p>
+                </li>
+                <div class="code-container">
+                    <pre
+                        class="code-block"><code class="language-bash">https://bridges.torproject.org/options?lang=en</code></pre>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <li>
+                    <p class="inner-p" p>Открываем файл torrc в текстовом редакторе и добавляем указанные строки с
+                        настройками мостов и
+                        портов.</p>
+                </li>
+                <div class="code-container">
+                    <pre class="code-block"><code class="language-bash">sudo nano /etc/tor/torrc</code></pre><button
+                        class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <p class="inner-p">Пример конфига:</p>
+                <div class="code-container">
+                    <pre class="code-block"><code class="language-bash"># Configuration:
+UseBridges 1
+SOCKSPort 9050
+ExcludeExitNodes {RU},{BY}
+StrictNodes 1
+
+# Эту опцию не включаем, так как используем vanilla мосты.
+# А vanilla мосты, мы используем, потому что русские научились
+# блокировать протокол обфускации obfs4.
+# ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy
+
+# Vanilla Bridges:
+bridge 23.88.56.229:18680 0131800F17ACED0D6CF979F3D0910D63E5F6015A
+bridge 24.96.77.137:43729 3FF3DA81DCD859CD6B5D31D719ADD7E39882A404</code></pre><button class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <li>
+                    <p class="inner-p">Перезапускаем службу Tor:</p>
+                </li>
+                <div class="code-container">
+                    <pre class="code-block"><code class="language-bash">sudo systemctl restart tor.service</code></pre><button
+                        class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <li>
+                    <p class="inner-p" p>Проверяем журнал, чтобы убедиться, что он успешно загрузился и запустился:</p>
+                </li>
+                <div class="code-container">
+                    <pre
+                        class="code-block"><code class="language-bash">journalctl -exft Tor | grep Bootstrapped</code></pre>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <p class="inner-p">Должно быть так:</p>
+                <div class="code-container">
+                    <pre class="code-block"><code class="language-bash">Bootstrapped 100% (done): Done</code></pre>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <p class="inner-p">выйти ctrl + с</p>
+                <li>
+                    <p class="inner-p">Для включения автозапуска службы Tor при старте системы:</p>
+                </li>
+                <div class="code-container">
+                    <pre class="code-block"><code class="language-bash">sudo systemctl enable tor.service</code></pre>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+            </ol>
+            <p>Чтобы использовать Tor в качестве прокси-сервера, укажите следующие настройки в своем приложении для
+                обозначенного типа прокси:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">Type: Socks5
+Host: 127.0.0.1
+Port: 9050</code></pre><button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Если используете браузер, чтобы предотвратить утечку DNS, нужно пустить DNS запросы через "мост". 
+                Поэтому включаем опцию, вроде этой <span><code class="language-bash">Proxy DNS when using SOCKS v5</code></span>, в Network Settings.
+                Для проверки утечки DNS:
+            </p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">https://dnsleaktest.com/</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Также, чтобы наверняка понимать, что происходит можно использовать сниффер сетевого траффика Wireshark.</p>
+        </div>
+
+        <div class="indentation">
+            <p><b>Использование Tor-browser и службы tor</b><span><code
+                        class="language-bash">tor.service</code></span>.</p>
+            <p>Для использования Tor-browser, нужно отключить службу tor.</p>
+            <ol>
+                <li>
+                    <p class="inner-p">Перед запуском браузера отключите службу tor, т.к. по умолчанию, они используют одинаковые порты:</p>
+                </li>
+                <div class="code-container">
+                    <pre class="code-block"><code class="language-bash">sudo systemctl stop tor.service</code></pre>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <li>
+                    <p class="inner-p">Посещаем сайт, выбираем опцию "None" и получаем список мостов:</p>
+                </li>
+                <div class="code-container">
+                    <pre
+                        class="code-block"><code class="language-bash">https://bridges.torproject.org/options?lang=en</code></pre>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <li>
+                    <p p class="inner-p">Запускаем Tor-browser и делаем следующее:</p>
+                </li>
+                <div class="code-container">
+                    <pre
+                        class="code-block"><code class="language-bash">Configure Connection &gt; Add a bridge manually &gt; Вставляем мосты &gt; Connect</code></pre>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <img alt="screenshot" src="img/tor-gui-manual.png" />
+            </ol>
+            <p>Если нужно снова запустить службу <span><code class="language-bash">tor.service</code></span>, закрыть
+                браузер и выполнить команду:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo systemctl start tor.service</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Выводит все службы, запущенные на вашей системе в данный момент, включая их состояние (активная,
+                остановленная и т. д.).</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">systemctl list-units --type=service</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Запустить программу в фоне, без вывода какого либо текста из stdout(1), stderr(2).</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">gnome-text-editor ~/pyfile.py &gt; /dev/null 2&gt;&amp;1 &amp;</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Работа с программами в фоне, из терминала.</p>
+            <ul>
+                <li>Запустите текстовый редактор GNOME:</li>
+
+                <div class="code-container">
+                    <pre class="code-block"><code class="language-bash">gnome-text-editor</code></pre><button
+                        class="copy-button"><i class="fas fa-copy"></i></button>
+                </div>
+                <li>Нажмите <span><code class="language-bash">Ctrl + Z</code></span>, чтобы приостановить выполнение
+                    программы и вернуть командный интерфейс.</li>
+                <li>Введите <span><code class="language-bash">bg</code></span>, чтобы переместить программу в фоновый
+                    режим, позволяя вам продолжать работу в терминале.</li>
+                <li>Если вам нужно вернуться к программе, введите <span><code class="language-bash">fg</code></span>,
+                    чтобы вернуть ее в основной режим.</li>
+                <li>Чтобы увидеть список программ, работающих в фоновом режиме, введите <span><code
+                            class="language-bash">jobs</code></span>.</li>
+                <li>Если вам нужно вернуть программу из фонового режима, введите <span><code
+                            class="language-bash">fg %1</code></span>, где <span><code
+                            class="language-bash">%1</code></span> - это номер задачи из списка <code
+                        class="language-bash">jobs</code>.</li>
+            </ul>
+        </div>
+        <div class="indentation">
+            <p>Сочетание клавиш в nano:</p>
+            <ul>
+                <li><span><code class="language-bash">Alt+A</code></span> — Начать выделение текста</li>
+                <li><span><code class="language-bash">Ctrl+K</code></span> — Вырезать выделенный текст</li>
+                <li><span><code class="language-bash">Alt+6</code></span> — Скопировать выделенный текст</li>
+                <li><span><code class="language-bash">Ctrl+U</code></span> — Вставить из буфера обмена</li>
+                <li><span><code class="language-bash">Home</code></span> — На начало текущей строки</li>
+                <li><span><code class="language-bash">End</code></span> — В конец текущей строки</li>
+                <li><span><code class="language-bash">Ctrl+X</code></span> или <span><code
+                            class="language-bash">F2</code></span> — Выйти из nano</li>
+                <li><span><code class="language-bash">Ctrl+O</code></span> или <span><code
+                            class="language-bash">F3</code></span> — Сохранить внесенные изменения</li>
+            </ul>
+        </div>
+        
+        <div class="indentation">
+            <p>Выводит список всех доступных репозиториев и их состояние, включая количество пакетов в каждом
+                репозитории.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">dnf repolist</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Директория, где хранятся файлы конфигурации репозиториев.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">cd /etc/yum.repos.d</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Cкачать аудио с youtube в формате opus с тэгами и миниатюрой, через yt-dlp.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">-o "%(title)s.%(ext)s"
+--remux-video opus -f bestaudio
+--convert-thumbnails png 
+--ppa "ThumbnailsConvertor+ffmpeg_o:-c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\""
+--embed-thumbnail
+--embed-metadata</code></pre><button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Сценарий для апгрейда Fedora до следующей версии.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo dnf upgrade --refresh
+sudo dnf install dnf-plugin-system-upgrade
+sudo dnf system-upgrade download --releasever=39 -y
+sudo dnf system-upgrade reboot
+sudo dnf autoremove</code></pre><button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p>Создает символическую ссылку с именем link_name, которая указывает на файл или директорию по указанному
+                пути</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">ln -s /Path/to/File/or/Directory link_name</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        <div class="indentation">
+            <p><b>Убиваем процессы в Linux.</b></p>
+            <p class="inner-p">Для отправки сигнала определенному процессу с указанным идентификатором (PID), используем
+                команду со следующим синтаксисом:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">kill -сигнал pid_процесса</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <br />
+            <p class="inner-p">Список опций:</p>
+            <ul>
+                <li><span><code class="language-bash">-сигнал</code></span>: Позволяет указать тип отправляемого сигнала
+                    (по умолчанию, параметр -сигнал равен -TERM).</li>
+                <li><span><code class="language-bash">pid_процесса</code></span>: Идентификатор (PID) процесса, которому
+                    нужно отправить сигнал.</li>
+            </ul>
+            <p class="inner-p">Пример:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">blxnk@fedora: ps aux | grep "calculator"
+blxnk       5534  0.2  2.6 1509032 154876 ?      Sl   08:16   0:02 /usr/bin/gnome-calculator
+blxnk       7688  0.0  0.0 222564  2304 pts/0    S+   08:32   0:00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox calculator
+
+blxnk@fedora: kill -TERM 5534</code></pre><button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Если сигнал <span><code class="language-bash">-TERM</code></span> не завершает, то в
+                крайнем случае:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">kill -KILL 5534</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="indentation">
+            <p>Чтобы узнать количество файлов в каталоге:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">ls -l . | grep "^-" | wc -l</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="indentation">
+            <p>Открыть конфиг планировщика задач:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">crontab -e</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="indentation">
+            <p>Удалить конфигурацию и плагины NeoVim, необратимо:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">rm -rf ~/.cache/nvim && rm -rf ~/.local/state/nvim && rm -rf ~/.local/share/nvim && rm -rf ~/.config/nvim</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="indentation">
+            <p>Вывести количество строк:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">wc -l &lt;filename&gt;</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            
+            <p class="inner-p">Список опций:</p>
+            <ul>
+                <li><span><code class="language-bash">-c</code></span>: вывести количество байт.</li>
+                <li><span><code class="language-bash">-m</code></span>: вывести количество символов.</li>
+                <li><span><code class="language-bash">-L</code></span>: вывести длину самой длинной строки.</li>
+                <li><span><code class="language-bash">-w</code></span>: вывести количество слов.</li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p>Вывести размер директории:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">du -hs &lt;directory&gt;</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="indentation">
+            <p>Настройка PPPoE с использованием nmcli:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">sudo nmcli connection add type pppoe con-name MyPPPoEConnection ifname enp3s0 username myUsername password myPassword</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Замените:</p>
+            <ul>
+                <li>MyPPPoEConnection - на желаемое имя соединения.</li>
+                <li>enp3s0 - на ваш сетевой интерфейс (используйте команду <span><code class="language-bash">ip link</code></span> для проверки доступных интерфейсов).</li>
+                <li>myUsername и myPassword - на ваши учетные данные PPPoE, предоставленные интернет-провайдером.</li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p>Эта команда покажет все прослушивающие TCP и UDP порты на вашей системе.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">netstat -tuln</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="indentation">
+            <p>Эта команда покажет процесс и другую информацию о сетевом соединении, которое использует порт, например 63342.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">sudo lsof -i :63342</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Пример:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">blxnk@fedora: sudo lsof -i :63342
+[sudo] password for blxnk: 
+COMMAND   PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="indentation">
+            <p>Эта команда покажет информацию о процессе с PID, например 12705, включая его команду запуска, использование памяти и процессора.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">ps -p 12705 -o pid,ppid,cmd,%mem,%cpu</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Пример:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">blxnk@fedora: ps -p 12705 -o pid,ppid,cmd,%mem,%cpu
+                        f
+  PID    PPID CMD                         %MEM %CPU
+12705    2124 /home/blxnk/pycharm-communi 20.2 10.5</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="indentation">
+            <p><b>Сочетания клавиш в GNOME Terminal:</b></p>
+            
+            <p class="inner-p2">Навигация по тексту:</p>
+            <ul>
+                <li><span><code class="language-bash">Ctrl+A</code></span> — Перемещает курсор в начало строки.</li>
+                <li><span><code class="language-bash">Ctrl+E</code></span> — Перемещает курсор в конец строки.</li>
+                <li><span><code class="language-bash">Ctrl+Left Arrow</code></span> — Перемещает курсор на одно слово влево.</li>
+                <li><span><code class="language-bash">Ctrl+Right Arrow</code></span> — Перемещает курсор на одно слово вправо.</li>
+            </ul>
+            <p class="inner-p2">Редактирование текста:</p>
+            <ul>
+                <li><span><code class="language-bash">Ctrl+U</code></span> — Удаляет текст от курсора до начала строки.</li>
+                <li><span><code class="language-bash">Ctrl+K</code></span> — Удаляет текст от курсора до конца строки.</li>
+                <li><span><code class="language-bash">Ctrl+W</code></span> — Удаляет слово слева от курсора.</li>
+                <li><span><code class="language-bash">Ctrl+Y</code></span> — Вставляет текст, который был удален последней командой удаления.</li>
+                <li><span><code class="language-bash">Ctrl+H</code></span> — Удаляет один символ слева от курсора (эквивалентно Backspace).</li>
+                <li><span><code class="language-bash">Ctrl+D</code></span> — Удаляет один символ под курсором или завершает сеанс, если введено в пустой строке.</li>
+            </ul>
+        
+            <p class="inner-p2">Управление экраном:</p>
+            <ul>
+                <li><span><code class="language-bash">Ctrl+L</code></span> — Очищает экран (эквивалентно команде clear).</li>
+                <li><span><code class="language-bash">Shift+Page Up</code></span> — Прокручивает экран вверх.</li>
+                <li><span><code class="language-bash">Shift+Page Down</code></span> — Прокручивает экран вниз.</li>
+            </ul>
+        
+            <p class="inner-p2">Работа с терминалом:</p>
+            <ul>
+                <li><span><code class="language-bash">Ctrl+Shift+T</code></span> — Открывает новую вкладку.</li>
+                <li><span><code class="language-bash">Ctrl+Shift+W</code></span> — Закрывает текущую вкладку.</li>
+                <li><span><code class="language-bash">Ctrl+Shift+N</code></span> — Открывает новое окно терминала.</li>
+                <li><span><code class="language-bash">Ctrl+Shift+Q</code></span> — Закрывает окно терминала.</li>
+                <li><span><code class="language-bash">Ctrl+Shift+C</code></span> — Копирует выделенный текст.</li>
+                <li><span><code class="language-bash">Ctrl+Shift+V</code></span> — Вставляет скопированный текст.</li>
+            </ul>
+        
+            <p class="inner-p2">Управление процессами:</p>
+            <ul>
+                <li><span><code class="language-bash">Ctrl+C</code></span> — Прерывает текущий процесс.</li>
+                <li><span><code class="language-bash">Ctrl+Z</code></span> — Приостанавливает текущий процесс.</li>
+                <li><span><code class="language-bash">Ctrl+R</code></span> — Поиск по истории команд.</li>
+                <li><span><code class="language-bash">Ctrl+D</code></span> — Завершает сеанс (выйти из терминала), если введено в пустой строке.</li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p><b>Разрешение на выполнение команды без запроса пароля.</b></p>
+            <p class="inner-p">Пример:</p>
+            <p class="inner-p">Открыть файл <span><code class="language-bash">/etc/sudoers.tmp</code></span> в текстовом редакторе:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">sudo EDITOR=nvim visudo</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">и добавить в конец строку:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">blxnk ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart tor.service</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">где <code class="language-bash">blxnk</code></pre>, имя пользователя.</p>
+        </div>
+
+        <div class="indentation">
+            <p><b>Перезапуск GNOME Shell</b></p>
+            <p class="inner-p">Можно использовать, если в gnome появились какие то артефакты или зависшие уведомления. 
+                Имейте в виду, что все ваши окна и рабочий стол перезагрузятся.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">killall gnome-shell</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        
+        <div class="indentation">
+            <p><b>Запуск установщика из терминала</b></p>
+            <p class="inner-p">Для запуска установщика Fedora в режиме live среды, когда графический установщик 
+                не запускается автоматически.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">sudo dbus-launch liveinst</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        
+
+        <!-- <div class="indentation">
+            <p>Текст параграфа:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">...</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div> -->
+
+        <br>
+    </main>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 footer-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 Company, Inc</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="vendor/js/bootstrap.bundle.min.js" defer></script>
+    <script defer="" src="vendor/js/prism.min.js"></script>
+    <script defer="" src="vendor/js/prism-bash.min.js"></script>
+    <script src="vendor/js/page-function.js"></script>
+
+</body>
+
+</html>

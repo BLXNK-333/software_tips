@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <script src="vendor/js/color-modes.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Regex Tips</title>
+
+
+    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/css/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="vendor/css/all.min.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet" />
+    <link href="vendor/css/navbar-fixed.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header -->
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top custom-navbar-color">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tips</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="fedora-tips.html">Fedora</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="git-tips.html">Git</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="python-tips.html">Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="regex-tips.html">Regex</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vim-tips.html">Vim</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 custom-search-input" type="search" placeholder="Search"
+                        aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main-->
+    <main class="container main-container">
+        <h1>Regex Tips</h1>
+        <div class="indentation">
+            <p>Шаблоны регулярных выражений:</p>
+            <ul>
+                <li><span><code class="language-regex">x(?=y)</code></span> находит x, только если за x следует y</li>
+                <li><span><code class="language-regex">x(?!y)</code></span> находит x, только если за x НЕ следует y</li>
+                <li><span><code class="language-regex">(?&lt;=y)x</code></span> находит x, только если перед x следует y</li>
+                <li><span><code class="language-regex">(?&lt;!y)x</code></span> находит x, только если перед x НЕ следует y</li>
+            </ul>
+        </div>
+
+        <!-- <div class="indentation">
+            <p>Текст параграфа:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-regexp">...</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div> -->
+
+        <br>
+    </main>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 footer-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 Company, Inc</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="vendor/js/bootstrap.bundle.min.js" defer></script>
+    <script defer="" src="vendor/js/prism.min.js"></script>
+    <script defer="" src="vendor/js/prism-regex.min.js"></script>
+    <script src="vendor/js/page-function.js"></script>
+
+</body>
+
+</html>

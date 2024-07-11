@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <script src="vendor/js/color-modes.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Python Tips</title>
+
+
+    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/css/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="vendor/css/all.min.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet" />
+    <link href="vendor/css/navbar-fixed.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header -->
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top custom-navbar-color">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tips</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="fedora-tips.html">Fedora</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="git-tips.html">Git</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="python-tips.html">Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="regex-tips.html">Regex</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vim-tips.html">Vim</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 custom-search-input" type="search" placeholder="Search"
+                        aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main-->
+    <main class="container main-container">
+        <h1>Python Tips</h1>
+
+        <div class="indentation">
+            <p><h5>Установка виртуального окружения</h5></p>
+            <p>Установка виртуального окружения python с дублированием файлов, запускать из каталога проекта:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">python3 -m venv --copies .venv</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">если нужно установить зависимости, временно отключаем переменные proxy</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">source .venv/bin/activate
+unset all_proxy && unset ALL_PROXY
+pip install --upgrade pip</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">далее можно влить <span><code class="language-bash">requirements.txt</code></span> или
+                другие пакеты.</p>
+        </div>
+
+        <div class="indentation">
+            <p><h5>Создание и использование файла requirements.txt для управления зависимостями</h5></p>
+            <p class="inner-p2">Команда для создания файла <span><code class="language-bash">requirements.txt</code></span>,
+                который содержит список всех установленных пакетов Python и их версий, чтобы в дальнейшем это можно
+                было использовать для восстановления среды Python с такими же зависимостями.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">pip freeze > requirements.txt</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p2">При выполнении этой команды <span><code class="language-bash">pip</code></span> проходит по списку
+                пакетов в файле <span><code class="language-bash">requirements.txt</code></span> и устанавливает каждый
+                из них (если они еще не установлены) с учетом указанных версий.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">pip install -r requirements.txt</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="indentation">
+            <p><h5>Активация виртуальной среды</h5></p>
+            <p>Активация виртуальной среды Python, расположенной по указанному пути:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">source /.../.venv/bin/activate</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p"><span><code class="language-bash">deactivate</code></span> - деактивация</p>
+        </div>
+
+        <div class="indentation">
+            <p><h5>Устранение ошибок, связанных с прокси, путем установки переменных окружения</h5></p>
+            <p>Чтобы убрать ошибки связанные с proxy, при вызове программы из консоли, добавить в __init__.py:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-python">import os
+
+# Установка переменных окружения
+os.environ["ALL_PROXY"] = ""
+os.environ["NO_PROXY"] = ""
+os.environ["all_proxy"] = ""
+os.environ["no_proxy"] = ""</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p">Пример файловой структуры:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-python">~/project/
+├── 📁 .git/
+├── 📁 .venv/
+├── 📁 src/
+│   ├── __init__.py  # вот сюда
+│   ├── module_1.py
+│   └── module_2.py
+├── main.py
+├── requirements.txt
+├── .flake8
+└── .gitignore</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p2">Также, можно реализовать с помощью библиотеки dotenv.</p>
+        </div>
+
+        <div class="indentation">
+            <p><h5>Точка входа в программу</h5></p>
+            <p>Если в вашем модуле, используются импорты из модулей, стоящих выше в файловой иерархии. 
+                И вы хотите сделать там временную точку входа для тестирования или других целей, вам нужно 
+                добавить родительскую директорию импортируемого модуля в путь поиска модулей Python (sys.path). 
+                Это позволяет Python находить и импортировать модули, расположенные выше в иерархии директорий.
+                Также, следует учесть, что в исполняемом файле - точке входа в проект, не может, по умолчанию, быть 
+                относительных импортов - только абсолютные.</p>
+            <p class="inner-p2">Пример файловой структуры:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-python">~/project/
+├── 📁 .git/
+├── 📁 .venv/
+├── 📁 src/
+│   ├── __init__.py  
+│   ├── module_2.py  # допустим здесь будет временная точка входа в программу.
+│   └── module_3.py
+├── module_1.py  # из этого модуля нужен импорт в module2.py
+├── requirements.txt
+├── .flake8
+└── .gitignore</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p2">Добавить в самое начало <span><code class="language-bash">module2.py</code></span></p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-python">import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            
+            <p class="inner-p2"><i>Использовать, только как временное решение, напимер для тестирования.</i></p>
+        </div>
+
+        <div class="indentation">
+            <p><h5>Количество строк в проекте</h5></p>
+            <p>Если вам нужно рекурсивно подсчитать количество строк кода во всех файлах в поддиректориях проекта:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">find . -type d \( -path './.venv' -o -path './.idea' -o -path './.git' \) -prune -o -name '*.py' -type f -exec wc -l {} + | awk '$1 != 0'</code></pre><button
+                    class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+
+        <!-- <div class="indentation">
+            <p>Текст параграфа:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-python">...</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div> -->
+
+        <br>
+    </main>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 footer-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 Company, Inc</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="vendor/js/bootstrap.bundle.min.js" defer></script>
+    <script defer="" src="vendor/js/prism.min.js"></script>
+    <script defer="" src="vendor/js/prism-bash.min.js"></script>
+    <script defer="" src="vendor/js/prism-python.min.js"></script>
+    <script src="vendor/js/page-function.js"></script>
+
+</body>
+
+</html>

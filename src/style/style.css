@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-style: normal;
+    src: url('../vendor/font/fa-solid-900.ttf') format('truetype');
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    background-color: #161616;
+    color: #f5f5f5;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+.nav-item .active {
+    color: #fff; /* Цвет текста для активной вкладки */
+}
+
+
+.custom-navbar-color {
+    background-color: #161616;
+    font-size: 16px;
+}
+
+.main-container {
+    max-width: 800px;
+    /* Максимальная ширина контейнера */
+    width: 100%;
+    /* Чтобы контейнер занимал всю доступную ширину */
+    padding: 0 20px;
+    /* "Отступы" слева и справа от контейнера */
+}
+
+.custom-search-input {
+    background-color: #1a1a1a;
+}
+
+.custom-search-input:focus {
+    background-color: #222222;
+    
+}
+
+.inner-p {
+    margin: 5px 0 2px 0;
+    padding: 0;
+}
+
+.inner-p2 {
+    margin: 10px 0 2px 0;
+    padding: 0;
+}
+
+.modal-image {
+    max-width: 1100px;
+    width: auto;
+    height: auto;
+}
+
+.modal-content {
+    background-color: #0f0f0f;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h5 {
+    color: #bbbbbb
+}
+
+li {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+ul {
+    margin: 0;
+}
+
+.indentation {
+    border-top: 1px solid #555555;
+    padding-top: 25px;
+    padding-bottom: 15px;
+}
+
+
+.footer-top {
+    border-top: 1px solid #555555;
+}
+
+/* Отключаем стили для pre */
+pre {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 0;
+    max-width: none;
+}
+
+
+.code-container {
+    position: relative;
+    display: inline-flex;
+    padding-right: 30px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+.code-block {
+    position: relative;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-flex;
+    overflow-x: hidden;
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
+
+.copy-button {
+    position: absolute;
+    display: none;
+    top: 16px;
+    right: 0px;
+    padding: 5px;
+    background: transparent;
+    color: #c2c2c2;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.copy-button:hover {
+    color: #3bcb3f;
+    /* Изменяем цвет при наведении */
+}
+
+
+.copy-button:active {
+    color: #217a24;
+    /* Изменяем цвет при нажатии */
+}
+
+
+span code[class*="language-"] {
+    padding: 1px 5px;
+    /* Дополнительные стили, если необходимо */
+}
+
+
+code {
+    font-family: 'Courier New', monospace;
+}

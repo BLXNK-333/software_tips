@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <script src="vendor/js/color-modes.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Vim Tips</title>
+
+
+    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/css/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="vendor/css/all.min.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet" />
+    <link href="vendor/css/navbar-fixed.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Header -->
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top custom-navbar-color">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tips</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="fedora-tips.html">Fedora</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="git-tips.html">Git</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="python-tips.html">Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="regex-tips.html">Regex</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vim-tips.html">Vim</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 custom-search-input" type="search" placeholder="Search"
+                        aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main-->
+    <main class="container main-container">
+        <h1>Vim Tips</h1>
+
+        <div class="indentation">
+            <p>
+            <h5>Режимы работы</h5>
+            </p>
+            <p class="inner-p2">Normal</p>
+            <ul>
+                <li>Режим по умолчанию</li>
+                <li>Любая клавиша воспринимается как команда</li>
+                <li>«Сложные» команды начинаются с <span><code class="language-vim">:</code></span></li>
+            </ul>
+            <p class="inner-p2">Insert</p>
+            <ul>
+                <li>Режим ввода текста — все, что вы нажимаете, вставляется (заменяется)</li>
+                <li>Выход через <span><code class="language-vim">Esc</code></span>, <span><code
+                            class="language-vim">Ctrl+c</code></span></li>
+            </ul>
+
+            <p class="inner-p2">Visual</p>
+            <ul>
+                <li>Режим выделения</li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p>
+            <h5>Перемещение</h5>
+            </p>
+            <p class="inner-p2">По вкладкам:</p>
+            <ul>
+                <li><span><code class="language-vim">gt</code></span> — переключение на следующую вкладку</li>
+                <li><span><code class="language-vim">gT</code></span> — переключение на предыдущую вкладку</li>
+                <li><span><code class="language-vim"><номер_вкладки>gt</code></span> — переключение на конкретную вкладку по номеру</li>
+                <li><span><code class="language-vim">:tabs</code></span> или <span><code class="language-vim">:ls</code></span> — показать список открытых вкладок</li>
+            </ul>
+            <p class="inner-p2">По символам:</p>
+            <ul>
+                <li>Стрелочки — используйте стрелочки на клавиатуре для перемещения курсора</li>
+                <li><span><code class="language-vim">h</code></span>, <span><code class="language-vim">j</code></span>,
+                    <span><code class="language-vim">k</code></span>, <span><code class="language-vim">l</code></span> —
+                    клавиши h, j, k и l перемещают курсор влево, вниз, вверх и вправо соответственно</li>
+            </ul>
+            <p class="inner-p2">По словам:</p>
+            <ul>
+                <li><span><code class="language-vim">w</code></span>, <span><code class="language-vim">W</code></span> —
+                    перемещают курсор в начало следующего слова (W игнорирует знаки препинания)</li>
+                <li><span><code class="language-vim">e</code></span>, <span><code class="language-vim">E</code></span> —
+                    перемещают курсор в конец текущего слова</li>
+                <li><span><code class="language-vim">b</code></span>, <span><code class="language-vim">B</code></span> —
+                    перемещают курсор в начало предыдущего слова (B игнорирует знаки препинания)</li>
+            </ul>
+            <p class="inner-p2">Еще крупнее:</p>
+            <ul>
+                <li><span><code class="language-vim">0</code></span>, <span><code class="language-vim">^</code></span>,
+                    <span><code class="language-vim">$</code></span> — перемещают курсор в начало строки, к первому
+                    непробельному символу и в конец строки соответственно</li>
+            </ul>
+            <p class="inner-p2">Совсем крупно:</p>
+            <ul>
+                <li><span><code class="language-vim">gg</code></span> — перемещает курсор в начало файла</li>
+                <li><span><code class="language-vim">G</code></span> — перемещает курсор в конец файла</li>
+                <li><span><code class="language-vim">:21</code></span> - переход к строке 21</li>
+                <li><span><code class="language-vim">Ctrl+D</code></span>, <span><code
+                            class="language-vim">Ctrl+U</code></span> - перемещение вниз/вверх на N строк, где N обычно
+                    пол-экрана</li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p class="inner-p2">
+            <h5>Создание</h5>
+            </p>
+            <ul>
+                <li><span><code class="language-vim">i</code></span> — войти в режим вставки (insert mode)</li>
+                <li><span><code class="language-vim">a</code></span> — сдвинуть курсор вправо и войти в режим вставки
+                    (insert mode)</li>
+                <li><span><code class="language-vim">I</code></span> = <span><code class="language-vim">^i</code></span>
+                    — войти в режим вставки (insert mode) в начало строки</li>
+                <li><span><code class="language-vim">A</code></span> = <span><code class="language-vim">$a</code></span>
+                    — войти в режим вставки (insert mode) в конец строки</li>
+                <li><span><code class="language-vim">o</code></span> — вставить пустую строку снизу и редактировать ее
+                </li>
+                <li><span><code class="language-vim">O</code></span> — вставить пустую строку сверху и редактировать ее
+                </li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p>
+            <h5>Удаление</h5>
+            </p>
+            <p class="inner-p2">По символам:</p>
+            <ul>
+                <li><span><code class="language-vim">x</code></span> — удаляет символ под курсором</li>
+                <li><span><code class="language-vim">X</code></span> — удаляет символ перед курсором</li>
+            </ul>
+            <p class="inner-p2">Сразу много:</p>
+            <ul>
+                <li><span><code class="language-vim">d [<кол-во>] <ход></code></span> — удаляет указанное количество
+                    элементов</li>
+                <li><span><code class="language-vim">de</code></span> — удаляет от текущего положения курсора до конца
+                    текущего слова</li>
+                <li><span><code class="language-vim">d$</code></span> — удаляет от текущего положения курсора до конца
+                    строки</li>
+                <li><span><code class="language-vim">d5w</code></span> — удаляет пять слов</li>
+            </ul>
+            <p class="inner-p2">Специальная команда:</p>
+            <ul>
+                <li><span><code class="language-vim">dd</code></span> — удаляет текущую строку (или, например,
+                    <span><code class="language-vim">d10d</code></span> - удаляет десять строк)</li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p>
+            <h5>Выделение текста</h5>
+            </p>
+            <ol>
+                <li>Перейдите в командный режим (нажмите клавишу <span><code class="language-vim">Esc</code></span>).
+                </li>
+                <li>Переместите курсор на начало текста, который вы хотите выделить.</li>
+                <li>Нажмите клавишу <span><code class="language-vim">v</code></span>, чтобы войти в режим визуального
+                    выделения.</li>
+                <li>Используйте стрелки или навигационные клавиши (например, <span><code
+                            class="language-vim">W</code></span>, <span><code class="language-vim">w</code></span>,
+                    <span><code class="language-vim">b</code></span>) для выбора текста.</li>
+                <li>После выделения нужного текста, вы можете скопировать его нажав клавишу <span><code
+                            class="language-vim">y</code></span> (для копирования) или удалить его клавишей <span><code
+                            class="language-vim">d</code></span> (для удаления).</li>
+            </ol>
+        </div>
+
+
+        <div class="indentation">
+            <p>
+            <h5>Копирование</h5>
+            </p>
+            <p class="inner-p2">Скопировать:</p>
+            <ul>
+                <li><span><code class="language-vim">y <кол-во> <ход></code></span> — копирует указанное количество
+                    элементов в указанном направлении. Например, <span><code class="language-vim">y3w</code></span>
+                    скопирует три слова вперед от текущего положения курсора.</li>
+                <li><span><code class="language-vim">yy</code></span> — копирует текущую строку.</li>
+            </ul>
+            <p class="inner-p2">Вставить:</p>
+            <ul>
+                <li><span><code class="language-vim">p</code></span> — вставляет содержимое буфера обмена после текущей
+                    позиции курсора.</li>
+                <li><span><code class="language-vim">P</code></span> — вставляет содержимое буфера обмена перед текущей
+                    позицией курсора.</li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p>
+            <h5>Поиск и замена</h5>
+            </p>
+            <p class="inner-p2">Поиск:</p>
+            <ul>
+                <li><span><code class="language-vim">/<текст></code></span> — искать <текст> вперед от текущей позиции
+                        курсора.</li>
+                <li><span><code class="language-vim">?<текст></code></span> — искать <текст> назад от текущей позиции
+                        курсора.</li>
+                <li><span><code class="language-vim">n</code></span> — перейти к следующему вхождению найденного текста.
+                </li>
+                <li><span><code class="language-vim">N</code></span> — перейти к предыдущему вхождению найденного
+                    текста.</li>
+            </ul>
+            <p class="inner-p2">Замена:</p>
+            <ul>
+                <li><span><code class="language-vim">:%s/<что ищем>/<на что меняем>/<флаги></code></span> — заменить
+                    каждое вхождение <что ищем> на <на что меняем> во всем файле. Флаги могут включать:
+                            <ul>
+                                <li><span><code class="language-vim">g</code></span> — выполнить множественные замены в
+                                    строке.</li>
+                                <li><span><code class="language-vim">c</code></span> — подтверждение каждой замены.</li>
+                            </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p>
+            <h5>Отмена/возврат</h5>
+            </p>
+            <ul>
+                <li><span><code class="language-vim">u</code></span> — отменить последнее действие.</li>
+                <li><span><code class="language-vim">Ctrl + r</code></span> — вернуть отмененное действие.</li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p>
+            <h5>Сохранение работы</h5>
+            </p>
+            <ul>
+                <li><span><code class="language-vim">:w</code></span> — сохранить изменения.</li>
+                <li><span><code class="language-vim">:wq</code></span> — сохранить и выйти.</li>
+                <li><span><code class="language-vim">:q!</code></span> — выйти без сохранения.</li>
+                <li><span><code class="language-vim">:qa</code></span> — выйти из всех вкладок.</li>
+                <li><span><code class="language-vim">:w <файл></code></span> — сохранить изменения в <файл>.</li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p>
+            <h5>Дополнительные конфигурационные команды</h5>
+            </p>
+            <ul>
+                <li><span><code class="language-vim">:set number</code></span> — показывать номера строк.</li>
+                <li><span><code class="language-vim">:set nonumber</code></span> — скрыть номера строк.</li>
+                <li><span><code class="language-vim">:tabnew</code></span> или <span><code
+                            class="language-vim">:tabnew <путь_к_файлу></code></span> — создать новую вкладку.</li>
+            </ul>
+        </div>
+
+        <div class="indentation">
+            <p>
+            <h5>Карта</h5>
+            </p>
+            <img src="./img/vim-map.png" class="img-fluid" id="openModalButton">
+
+            <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body text-center">
+                            <img src="./img/vim-map.png" class="img-fluid modal-image"
+                                onclick="$('#imageModal').modal('hide');">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="indentation">
+            <p>Текст параграфа:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-vim">...</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div> -->
+
+        <br>
+    </main>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 footer-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 Company, Inc</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="vendor/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="vendor/js/popper.min.js"></script>
+    <script src="vendor/js/bootstrap.bundle.min.js" defer></script>
+    <script defer="" src="vendor/js/prism.min.js"></script>
+    <script defer="" src="vendor/js/prism-vim.min.js"></script>
+    <script src="vendor/js/page-function.js"></script>
+
+</body>
+
+</html>
