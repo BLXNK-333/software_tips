@@ -57,13 +57,20 @@
     <main class="container main-container">
         <h1>Fedora Tips</h1>
         <div class="indentation">
+            <p><h5>Изменение раскладки:</h5></p>
             <p>Используется для установки сочетания клавиш для переключения между источниками ввода
                 (языками) в GNOME
-                Desktop на Linux. В данном случае сочетание клавиш установлено на <control>Shift_L.</control>
+                Desktop на Linux. В данном случае сочетание клавиш установлено на &lt;Alt&gt;Shift_L.
             </p>
             <div class="code-container">
                 <pre
-                    class="code-block"><code class="language-bash">gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<control>Shift_L']"</control></code></pre>
+                    class="code-block"><code class="language-bash">gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['&lt;Alt&gt;Shift_L']"</control></code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p2"> Для сброса к дефолтным:</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['&lt;Super&gt;space']"</control></code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
         </div>
@@ -389,8 +396,7 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg</code></pre><button class="copy-butt
             </div>
             <p class="inner-p">Список:</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">caffeine@patapon.info
+                <pre class="code-block"><code class="language-bash">caffeine@patapon.info
 appindicatorsupport@rgcjonas.gmail.com
 Vitals@CoreCoding.com
 just-perfection-desktop@just-perfection
@@ -503,7 +509,8 @@ keepcache=True</code></pre><button class="copy-button"><i class="fas fa-copy"></
             <p><b>Настройка прокификации через tor на Fedora 40.</b></p>
             <ol>
                 <li>
-                    <p class="inner-p">Подключаем репозиторий Tor (В РФ TOR блокируют, поэтому пункт 1 пропускаем, потому что сервер с файлами не будет доступен):</p>
+                    <p class="inner-p">Подключаем репозиторий Tor (В РФ TOR блокируют, поэтому пункт 1 пропускаем,
+                        потому что сервер с файлами не будет доступен):</p>
                 </li>
                 <div class="code-container">
                     <pre class="code-block"><code class="language-bash">sudo nano /etc/yum.repos.d/tor.repo</code></pre>
@@ -558,14 +565,15 @@ StrictNodes 1
 
 # Vanilla Bridges:
 bridge 23.88.56.229:18680 0131800F17ACED0D6CF979F3D0910D63E5F6015A
-bridge 24.96.77.137:43729 3FF3DA81DCD859CD6B5D31D719ADD7E39882A404</code></pre><button class="copy-button"><i class="fas fa-copy"></i></button>
+bridge 24.96.77.137:43729 3FF3DA81DCD859CD6B5D31D719ADD7E39882A404</code></pre><button class="copy-button"><i
+                            class="fas fa-copy"></i></button>
                 </div>
                 <li>
                     <p class="inner-p">Перезапускаем службу Tor:</p>
                 </li>
                 <div class="code-container">
-                    <pre class="code-block"><code class="language-bash">sudo systemctl restart tor.service</code></pre><button
-                        class="copy-button"><i class="fas fa-copy"></i></button>
+                    <pre class="code-block"><code class="language-bash">sudo systemctl restart tor.service</code></pre>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
                 <li>
                     <p class="inner-p" p>Проверяем журнал, чтобы убедиться, что он успешно загрузился и запустился:</p>
@@ -596,25 +604,28 @@ bridge 24.96.77.137:43729 3FF3DA81DCD859CD6B5D31D719ADD7E39882A404</code></pre><
 Host: 127.0.0.1
 Port: 9050</code></pre><button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">Если используете браузер, чтобы предотвратить утечку DNS, нужно пустить DNS запросы через "мост". 
-                Поэтому включаем опцию, вроде этой <span><code class="language-bash">Proxy DNS when using SOCKS v5</code></span>, в Network Settings.
+            <p class="inner-p">Если используете браузер, чтобы предотвратить утечку DNS, нужно пустить DNS запросы через
+                "мост".
+                Поэтому включаем опцию, вроде этой <span><code
+                        class="language-bash">Proxy DNS when using SOCKS v5</code></span>, в Network Settings.
                 Для проверки утечки DNS:
             </p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">https://dnsleaktest.com/</code></pre>
+                <pre class="code-block"><code class="language-bash">https://dnsleaktest.com/</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">Также, чтобы наверняка понимать, что происходит можно использовать сниффер сетевого траффика Wireshark.</p>
+            <p class="inner-p">Также, чтобы наверняка понимать, что происходит можно использовать сниффер сетевого
+                траффика Wireshark.</p>
         </div>
 
         <div class="indentation">
-            <p><b>Использование Tor-browser и службы tor</b><span><code
-                        class="language-bash">tor.service</code></span>.</p>
+            <p><b>Использование Tor-browser и службы tor</b><span><code class="language-bash">tor.service</code></span>.
+            </p>
             <p>Для использования Tor-browser, нужно отключить службу tor.</p>
             <ol>
                 <li>
-                    <p class="inner-p">Перед запуском браузера отключите службу tor, т.к. по умолчанию, они используют одинаковые порты:</p>
+                    <p class="inner-p">Перед запуском браузера отключите службу tor, т.к. по умолчанию, они используют
+                        одинаковые порты:</p>
                 </li>
                 <div class="code-container">
                     <pre class="code-block"><code class="language-bash">sudo systemctl stop tor.service</code></pre>
@@ -699,7 +710,7 @@ Port: 9050</code></pre><button class="copy-button"><i class="fas fa-copy"></i></
                             class="language-bash">F3</code></span> — Сохранить внесенные изменения</li>
             </ul>
         </div>
-        
+
         <div class="indentation">
             <p>Выводит список всех доступных репозиториев и их состояние, включая количество пакетов в каждом
                 репозитории.</p>
@@ -780,8 +791,7 @@ blxnk@fedora: kill -TERM 5534</code></pre><button class="copy-button"><i class="
         <div class="indentation">
             <p>Чтобы узнать количество файлов в каталоге:</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">ls -l . | grep "^-" | wc -l</code></pre>
+                <pre class="code-block"><code class="language-bash">ls -l . | grep "^-" | wc -l</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
         </div>
@@ -789,8 +799,7 @@ blxnk@fedora: kill -TERM 5534</code></pre><button class="copy-button"><i class="
         <div class="indentation">
             <p>Открыть конфиг планировщика задач:</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">crontab -e</code></pre>
+                <pre class="code-block"><code class="language-bash">crontab -e</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
         </div>
@@ -807,11 +816,10 @@ blxnk@fedora: kill -TERM 5534</code></pre><button class="copy-button"><i class="
         <div class="indentation">
             <p>Вывести количество строк:</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">wc -l &lt;filename&gt;</code></pre>
+                <pre class="code-block"><code class="language-bash">wc -l &lt;filename&gt;</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            
+
             <p class="inner-p">Список опций:</p>
             <ul>
                 <li><span><code class="language-bash">-c</code></span>: вывести количество байт.</li>
@@ -824,8 +832,7 @@ blxnk@fedora: kill -TERM 5534</code></pre><button class="copy-button"><i class="
         <div class="indentation">
             <p>Вывести размер директории:</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">du -hs &lt;directory&gt;</code></pre>
+                <pre class="code-block"><code class="language-bash">du -hs &lt;directory&gt;</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
         </div>
@@ -840,7 +847,8 @@ blxnk@fedora: kill -TERM 5534</code></pre><button class="copy-button"><i class="
             <p class="inner-p">Замените:</p>
             <ul>
                 <li>MyPPPoEConnection - на желаемое имя соединения.</li>
-                <li>enp3s0 - на ваш сетевой интерфейс (используйте команду <span><code class="language-bash">ip link</code></span> для проверки доступных интерфейсов).</li>
+                <li>enp3s0 - на ваш сетевой интерфейс (используйте команду <span><code
+                            class="language-bash">ip link</code></span> для проверки доступных интерфейсов).</li>
                 <li>myUsername и myPassword - на ваши учетные данные PPPoE, предоставленные интернет-провайдером.</li>
             </ul>
         </div>
@@ -848,23 +856,21 @@ blxnk@fedora: kill -TERM 5534</code></pre><button class="copy-button"><i class="
         <div class="indentation">
             <p>Эта команда покажет все прослушивающие TCP и UDP порты на вашей системе.</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">netstat -tuln</code></pre>
+                <pre class="code-block"><code class="language-bash">netstat -tuln</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
         </div>
 
         <div class="indentation">
-            <p>Эта команда покажет процесс и другую информацию о сетевом соединении, которое использует порт, например 63342.</p>
+            <p>Эта команда покажет процесс и другую информацию о сетевом соединении, которое использует порт, например
+                63342.</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">sudo lsof -i :63342</code></pre>
+                <pre class="code-block"><code class="language-bash">sudo lsof -i :63342</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
             <p class="inner-p">Пример:</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">blxnk@fedora: sudo lsof -i :63342
+                <pre class="code-block"><code class="language-bash">blxnk@fedora: sudo lsof -i :63342
 [sudo] password for blxnk: 
 COMMAND   PID  USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
 java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</code></pre>
@@ -873,16 +879,15 @@ java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</c
         </div>
 
         <div class="indentation">
-            <p>Эта команда покажет информацию о процессе с PID, например 12705, включая его команду запуска, использование памяти и процессора.</p>
+            <p>Эта команда покажет информацию о процессе с PID, например 12705, включая его команду запуска,
+                использование памяти и процессора.</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">ps -p 12705 -o pid,ppid,cmd,%mem,%cpu</code></pre>
+                <pre class="code-block"><code class="language-bash">ps -p 12705 -o pid,ppid,cmd,%mem,%cpu</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
             <p class="inner-p">Пример:</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">blxnk@fedora: ps -p 12705 -o pid,ppid,cmd,%mem,%cpu
+                <pre class="code-block"><code class="language-bash">blxnk@fedora: ps -p 12705 -o pid,ppid,cmd,%mem,%cpu
                         f
   PID    PPID CMD                         %MEM %CPU
 12705    2124 /home/blxnk/pycharm-communi 20.2 10.5</code></pre>
@@ -891,32 +896,40 @@ java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</c
         </div>
 
         <div class="indentation">
-            <p><b>Сочетания клавиш в GNOME Terminal:</b></p>
-            
+            <p><h5>Сочетания клавиш в GNOME Terminal:</h5></p>
+
             <p class="inner-p2">Навигация по тексту:</p>
             <ul>
                 <li><span><code class="language-bash">Ctrl+A</code></span> — Перемещает курсор в начало строки.</li>
                 <li><span><code class="language-bash">Ctrl+E</code></span> — Перемещает курсор в конец строки.</li>
-                <li><span><code class="language-bash">Ctrl+Left Arrow</code></span> — Перемещает курсор на одно слово влево.</li>
-                <li><span><code class="language-bash">Ctrl+Right Arrow</code></span> — Перемещает курсор на одно слово вправо.</li>
+                <li><span><code class="language-bash">Ctrl+Left Arrow</code></span> — Перемещает курсор на одно слово
+                    влево.</li>
+                <li><span><code class="language-bash">Ctrl+Right Arrow</code></span> — Перемещает курсор на одно слово
+                    вправо.</li>
             </ul>
             <p class="inner-p2">Редактирование текста:</p>
             <ul>
-                <li><span><code class="language-bash">Ctrl+U</code></span> — Удаляет текст от курсора до начала строки.</li>
-                <li><span><code class="language-bash">Ctrl+K</code></span> — Удаляет текст от курсора до конца строки.</li>
+                <li><span><code class="language-bash">Ctrl+U</code></span> — Удаляет текст от курсора до начала строки.
+                </li>
+                <li><span><code class="language-bash">Ctrl+K</code></span> — Удаляет текст от курсора до конца строки.
+                </li>
                 <li><span><code class="language-bash">Ctrl+W</code></span> — Удаляет слово слева от курсора.</li>
-                <li><span><code class="language-bash">Ctrl+Y</code></span> — Вставляет текст, который был удален последней командой удаления.</li>
-                <li><span><code class="language-bash">Ctrl+H</code></span> — Удаляет один символ слева от курсора (эквивалентно Backspace).</li>
-                <li><span><code class="language-bash">Ctrl+D</code></span> — Удаляет один символ под курсором или завершает сеанс, если введено в пустой строке.</li>
+                <li><span><code class="language-bash">Ctrl+Y</code></span> — Вставляет текст, который был удален
+                    последней командой удаления.</li>
+                <li><span><code class="language-bash">Ctrl+H</code></span> — Удаляет один символ слева от курсора
+                    (эквивалентно Backspace).</li>
+                <li><span><code class="language-bash">Ctrl+D</code></span> — Удаляет один символ под курсором или
+                    завершает сеанс, если введено в пустой строке.</li>
             </ul>
-        
+
             <p class="inner-p2">Управление экраном:</p>
             <ul>
-                <li><span><code class="language-bash">Ctrl+L</code></span> — Очищает экран (эквивалентно команде clear).</li>
+                <li><span><code class="language-bash">Ctrl+L</code></span> — Очищает экран (эквивалентно команде clear).
+                </li>
                 <li><span><code class="language-bash">Shift+Page Up</code></span> — Прокручивает экран вверх.</li>
                 <li><span><code class="language-bash">Shift+Page Down</code></span> — Прокручивает экран вниз.</li>
             </ul>
-        
+
             <p class="inner-p2">Работа с терминалом:</p>
             <ul>
                 <li><span><code class="language-bash">Ctrl+Shift+T</code></span> — Открывает новую вкладку.</li>
@@ -926,23 +939,24 @@ java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</c
                 <li><span><code class="language-bash">Ctrl+Shift+C</code></span> — Копирует выделенный текст.</li>
                 <li><span><code class="language-bash">Ctrl+Shift+V</code></span> — Вставляет скопированный текст.</li>
             </ul>
-        
+
             <p class="inner-p2">Управление процессами:</p>
             <ul>
                 <li><span><code class="language-bash">Ctrl+C</code></span> — Прерывает текущий процесс.</li>
                 <li><span><code class="language-bash">Ctrl+Z</code></span> — Приостанавливает текущий процесс.</li>
                 <li><span><code class="language-bash">Ctrl+R</code></span> — Поиск по истории команд.</li>
-                <li><span><code class="language-bash">Ctrl+D</code></span> — Завершает сеанс (выйти из терминала), если введено в пустой строке.</li>
+                <li><span><code class="language-bash">Ctrl+D</code></span> — Завершает сеанс (выйти из терминала), если
+                    введено в пустой строке.</li>
             </ul>
         </div>
 
         <div class="indentation">
-            <p><b>Разрешение на выполнение команды без запроса пароля.</b></p>
+            <p><h5>Разрешение на выполнение команды без запроса пароля.</h5></p>
             <p class="inner-p">Пример:</p>
-            <p class="inner-p">Открыть файл <span><code class="language-bash">/etc/sudoers.tmp</code></span> в текстовом редакторе:</p>
+            <p class="inner-p">Открыть файл <span><code class="language-bash">/etc/sudoers.tmp</code></span> в текстовом
+                редакторе:</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">sudo EDITOR=nvim visudo</code></pre>
+                <pre class="code-block"><code class="language-bash">sudo EDITOR=nvim visudo</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
             <p class="inner-p">и добавить в конец строку:</p>
@@ -955,30 +969,45 @@ java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</c
         </div>
 
         <div class="indentation">
-            <p><b>Перезапуск GNOME Shell</b></p>
-            <p class="inner-p">Можно использовать, если в gnome появились какие то артефакты или зависшие уведомления. 
+            <p><h5>Перезапуск GNOME Shell</h5></p>
+            <p class="inner-p">Можно использовать, если в gnome появились какие то артефакты или зависшие уведомления.
                 Имейте в виду, что все ваши окна и рабочий стол перезагрузятся.</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">killall gnome-shell</code></pre>
+                <pre class="code-block"><code class="language-bash">killall gnome-shell</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
         </div>
-        
+
         <div class="indentation">
-            <p><b>Запуск установщика из терминала</b></p>
-            <p class="inner-p">Для запуска установщика Fedora в режиме live среды, когда графический установщик 
+            <p><h5>Запуск установщика системы из терминала</h5></p>
+            <p class="inner-p">Для запуска установщика Fedora в режиме live среды, когда графический установщик
                 не запускается автоматически.</p>
             <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">sudo dbus-launch liveinst</code></pre>
+                <pre class="code-block"><code class="language-bash">sudo dbus-launch liveinst</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
         </div>
-        
+
+        <div class="indentation">
+            <p><h5>Получение текущей раскладки клавиатуры из терминала</h5></p>
+            <p class="inner-p">Команда позволяет получить список источников ввода (раскладок клавиатуры) в GNOME,
+                отсортированный по наиболее недавно использованным. Это значение представляет собой список раскладок,
+                которые вы использовали недавно, где первая раскладка в списке — это текущая активная раскладка.</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">gsettings get org.gnome.desktop.input-sources mru-sources</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p2">Вывод терминала:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">[('xkb', 'ru'), ('xkb', 'us')]</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
 
         <!-- <div class="indentation">
-            <p>Текст параграфа:</p>
+            <p><h5>Заголовок</h5></p>
+            <p class="inner-p">Описание</p>
             <div class="code-container">
                 <pre
                     class="code-block"><code class="language-bash">...</code></pre>
@@ -1004,9 +1033,10 @@ java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</c
     </div>
 
     <script src="vendor/js/bootstrap.bundle.min.js" defer></script>
-    <script defer="" src="vendor/js/prism.min.js"></script>
-    <script defer="" src="vendor/js/prism-bash.min.js"></script>
+    <script src="vendor/js/prism.min.js" defer></script>
+    <script src="vendor/js/prism-bash.min.js" defer></script>
     <script src="vendor/js/page-function.js"></script>
+    
 
 </body>
 

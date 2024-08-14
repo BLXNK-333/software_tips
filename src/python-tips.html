@@ -58,7 +58,9 @@
         <h1>Python Tips</h1>
 
         <div class="indentation">
-            <p><h5>Установка виртуального окружения</h5></p>
+            <p>
+            <h5>Установка виртуального окружения</h5>
+            </p>
             <p>Установка виртуального окружения python с дублированием файлов, запускать из каталога проекта:</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">python3 -m venv --copies .venv</code></pre>
@@ -76,15 +78,19 @@ pip install --upgrade pip</code></pre>
         </div>
 
         <div class="indentation">
-            <p><h5>Создание и использование файла requirements.txt для управления зависимостями</h5></p>
-            <p class="inner-p2">Команда для создания файла <span><code class="language-bash">requirements.txt</code></span>,
+            <p>
+            <h5>Создание и использование файла requirements.txt для управления зависимостями</h5>
+            </p>
+            <p class="inner-p2">Команда для создания файла <span><code
+                        class="language-bash">requirements.txt</code></span>,
                 который содержит список всех установленных пакетов Python и их версий, чтобы в дальнейшем это можно
                 было использовать для восстановления среды Python с такими же зависимостями.</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">pip freeze > requirements.txt</code></pre><button
                     class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p2">При выполнении этой команды <span><code class="language-bash">pip</code></span> проходит по списку
+            <p class="inner-p2">При выполнении этой команды <span><code class="language-bash">pip</code></span> проходит
+                по списку
                 пакетов в файле <span><code class="language-bash">requirements.txt</code></span> и устанавливает каждый
                 из них (если они еще не установлены) с учетом указанных версий.</p>
             <div class="code-container">
@@ -94,7 +100,9 @@ pip install --upgrade pip</code></pre>
         </div>
 
         <div class="indentation">
-            <p><h5>Активация виртуальной среды</h5></p>
+            <p>
+            <h5>Активация виртуальной среды</h5>
+            </p>
             <p>Активация виртуальной среды Python, расположенной по указанному пути:</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">source /.../.venv/bin/activate</code></pre><button
@@ -104,7 +112,9 @@ pip install --upgrade pip</code></pre>
         </div>
 
         <div class="indentation">
-            <p><h5>Устранение ошибок, связанных с прокси, путем установки переменных окружения</h5></p>
+            <p>
+            <h5>Устранение ошибок, связанных с прокси, путем установки переменных окружения</h5>
+            </p>
             <p>Чтобы убрать ошибки связанные с proxy, при вызове программы из консоли, добавить в __init__.py:</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-python">import os
@@ -135,12 +145,14 @@ os.environ["no_proxy"] = ""</code></pre>
         </div>
 
         <div class="indentation">
-            <p><h5>Временная точка входа в программу</h5></p>
-            <p>Если в вашем модуле, используются импорты из модулей, стоящих выше в файловой иерархии. 
-                И вы хотите сделать там временную точку входа для тестирования или других целей, вам нужно 
-                добавить родительскую директорию импортируемого модуля в путь поиска модулей Python (sys.path). 
+            <p>
+            <h5>Временная точка входа в программу</h5>
+            </p>
+            <p>Если в вашем модуле, используются импорты из модулей, стоящих выше в файловой иерархии.
+                И вы хотите сделать там временную точку входа для тестирования или других целей, вам нужно
+                добавить родительскую директорию импортируемого модуля в путь поиска модулей Python (sys.path).
                 Это позволяет Python находить и импортировать модули, расположенные выше в иерархии директорий.
-                Также, следует учесть, что в исполняемом файле - точке входа в проект, не может, по умолчанию, быть 
+                Также, следует учесть, что в исполняемом файле - точке входа в проект, не может, по умолчанию, быть
                 относительных импортов - только абсолютные.</p>
             <p class="inner-p2">Пример файловой структуры:</p>
             <div class="code-container">
@@ -165,16 +177,21 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            
-            <p class="inner-p2"><i>Использовать, только как временное решение, напимер для тестирования.</i></p>
+
+            <p class="inner-p2"><i>Использовать, только как временное решение, напимер для тестирования. Этот костыль,
+                    также не будет работать, если в коде выстроена структура относительных импортов, так что лучше его
+                    вообще не использовать.</i></p>
         </div>
 
         <div class="indentation">
-            <p><h5>Количество строк в проекте</h5></p>
+            <p>
+            <h5>Количество строк в проекте</h5>
+            </p>
             <p>Если вам нужно рекурсивно подсчитать количество строк кода во всех файлах в поддиректориях проекта:</p>
             <div class="code-container">
-                <pre class="code-block"><code class="language-bash">find . -type d \( -path './.venv' -o -path './.idea' -o -path './.git' \) -prune -o -name '*.py' -type f -exec wc -l {} + | awk '$1 != 0'</code></pre><button
-                    class="copy-button"><i class="fas fa-copy"></i></button>
+                <pre
+                    class="code-block"><code class="language-bash">find . -type d \( -path './.venv' -o -path './.idea' -o -path './.git' \) -prune -o -name '*.py' -type f -exec wc -l {} + | awk '$1 != 0'</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
         </div>
 
@@ -206,9 +223,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))</code></pre>
     </div>
 
     <script src="vendor/js/bootstrap.bundle.min.js" defer></script>
-    <script defer="" src="vendor/js/prism.min.js"></script>
-    <script defer="" src="vendor/js/prism-bash.min.js"></script>
-    <script defer="" src="vendor/js/prism-python.min.js"></script>
+    <script src="vendor/js/prism.min.js" defer></script>
+    <script src="vendor/js/prism-bash.min.js" defer></script>
+    <script src="vendor/js/prism-python.min.js" defer></script>
     <script src="vendor/js/page-function.js"></script>
 
 </body>
