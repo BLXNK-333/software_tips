@@ -558,10 +558,12 @@ SOCKSPort 9050
 ExcludeExitNodes {RU},{BY}
 StrictNodes 1
 
-# Эту опцию не включаем, так как используем vanilla мосты.
-# А vanilla мосты, мы используем, потому что русские научились
-# блокировать протокол обфускации obfs4.
-# ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy
+# Увеличиваем время жизни цепочек, так как используем
+# этот tor proxy, только для обхода блокировок.
+ExitNodes {DE}
+MaxCircuitDirtiness 14400
+TrackHostExits *.chatgpt.com *.google.com *.youtube.com *stackoverflow.com
+TrackHostExitsExpire 14400
 
 # Vanilla Bridges:
 bridge 23.88.56.229:18680 0131800F17ACED0D6CF979F3D0910D63E5F6015A

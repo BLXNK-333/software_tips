@@ -195,6 +195,40 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))</code></pre>
             </div>
         </div>
 
+        <div class="indentation">
+            <p>
+            <h5>Использование виртуального окружения с sudo</h5>
+            </p>
+            <p class="inner-p">При использовании <span><code class="language-bash">sudo</code></span>, виртуальное окружение не активируется автоматически. Вы можете попытаться
+                запустить скрипт внутри активированного виртуального окружения, чтобы sudo использовал Python и
+                библиотеки из этого окружения.</p>
+            <p class="inner-p2">Для этого используйте команду <span><code class="language-bash">sudo</code></span> с переменной окружения PYTHONPATH, указывающей на виртуальное окружение:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-python">sudo PYTHONPATH=$(python3 -c 'import site; print(site.getsitepackages()[0])') python3 example.py</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+        
+        <div class="indentation">
+            <p>
+                <h5>Форматирует текущее время в строку</h5>
+            </p>
+            <p class="inner-p">Позволяет получить строку с текущим временем для названия файла, включающую миллисекунды и разделенную тире.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-python">from datetime import datetime
+
+# Получаем текущее время
+now = datetime.now()
+
+# Форматируем время в строку для названия файла с миллисекундами
+file_name = now.strftime("%Y-%m-%d_%H-%M-%S-%f")
+
+print(file_name)  # Пример вывода: 2024-09-01_14-25-36-123456</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
 
         <!-- <div class="indentation">
             <p>Текст параграфа:</p>
