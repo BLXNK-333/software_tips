@@ -2,7 +2,9 @@
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-style: normal;
-    src: url('../vendor/font/fa-solid-900.ttf') format('truetype');
+    src: url('../vendor/webfonts/fa-solid-900.woff2') format('woff2'),
+         url('../vendor/webfonts/fa-solid-900.woff') format('woff'),
+         url('../vendor/webfonts/fa-solid-900.ttf') format('truetype');
 }
 
 html {

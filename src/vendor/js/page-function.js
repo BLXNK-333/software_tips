@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
 // Функция для копирования кода в буфер обмена
 document.addEventListener("DOMContentLoaded", function () {
     const codeContainers = document.querySelectorAll('.code-container');
@@ -20,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
     codeContainers.forEach(codeContainer => {
         const codeBlock = codeContainer.querySelector('.code-block');
         const copyButton = codeContainer.querySelector('.copy-button');
+
+        if (!copyButton || !codeBlock) return; // Проверяем, есть ли элементы
 
         codeContainer.addEventListener('mouseenter', () => {
             copyButton.style.display = 'block';
@@ -36,17 +37,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 // Добавляем обработчик события для открытия модального окна при клике на кнопку
-document.getElementById('openModalButton').addEventListener('click', function () {
-    $('#imageModal').modal('show');
+document.addEventListener("DOMContentLoaded", function () {
+    const openModalButton = document.getElementById('openModalButton');
+    const modalImage = document.getElementById('modalImage');
+
+    if (openModalButton) {
+        openModalButton.addEventListener('click', function () {
+            $('#imageModal').modal('show');
+        });
+    }
+
+    if (modalImage) {
+        modalImage.addEventListener('click', function() {
+            $('#imageModal').modal('hide');
+        });
+    }
 });
-
-
-// Добавляем обработчик события для закрытия модального окна при клике на изображение
-document.getElementById('modalImage').addEventListener('click', function() {
-    $('#imageModal').modal('hide');
-});
-
-
-// Функция поиска по странице ...

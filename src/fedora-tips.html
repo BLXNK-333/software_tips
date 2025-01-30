@@ -8,6 +8,7 @@
     <title>Fedora Tips</title>
 
 
+    <link rel="icon" href="vendor/icons/wrench.png" type="image/png">
     <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/css/prism-tomorrow.min.css" rel="stylesheet" />
     <link href="vendor/css/all.min.css" rel="stylesheet" />
@@ -479,7 +480,7 @@ pomodoro@arun.codito.in</code></pre>
             </ul>
         </div>
         <div class="indentation">
-            <p>Ускоряет <span><code class="language-bash">DNF</code></span>.</p>
+            <p><h5>Ускоряет DNF</h5></p>
             <p class="inner-p">Открываем файл:</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">sudo nano /etc/dnf/dnf.conf</code></pre><button
@@ -571,7 +572,7 @@ StrictNodes 1
 # этот tor proxy, только для обхода блокировок.
 ExitNodes {DE}
 MaxCircuitDirtiness 14400
-TrackHostExits *.chatgpt.com *.google.com *.youtube.com *stackoverflow.com
+TrackHostExits *.chatgpt.com *.google.com *stackoverflow.com
 TrackHostExitsExpire 14400
 
 # Vanilla Bridges:
@@ -684,7 +685,7 @@ Port: 9050</code></pre><button class="copy-button"><i class="fas fa-copy"></i></
             </div>
         </div>
         <div class="indentation">
-            <p>Работа с программами в фоне, из терминала.</p>
+            <p><h5>Работа с программами в фоне, из терминала.</h5></p>
             <ul>
                 <li>Запустите текстовый редактор GNOME:</li>
 
@@ -707,7 +708,7 @@ Port: 9050</code></pre><button class="copy-button"><i class="fas fa-copy"></i></
             </ul>
         </div>
         <div class="indentation">
-            <p>Сочетание клавиш в nano:</p>
+            <p><h5>Сочетание клавиш в nano:</h5></p>
             <ul>
                 <li><span><code class="language-bash">Alt+A</code></span> — Начать выделение текста</li>
                 <li><span><code class="language-bash">Ctrl+K</code></span> — Вырезать выделенный текст</li>
@@ -768,7 +769,7 @@ sudo dnf autoremove</code></pre><button class="copy-button"><i class="fas fa-cop
             </div>
         </div>
         <div class="indentation">
-            <p><b>Убиваем процессы в Linux.</b></p>
+            <p><h5>Убиваем процессы в Linux.</h5></p>
             <p class="inner-p">Для отправки сигнала определенному процессу с указанным идентификатором (PID), используем
                 команду со следующим синтаксисом:</p>
             <div class="code-container">
@@ -849,7 +850,7 @@ blxnk@fedora: kill -TERM 5534</code></pre><button class="copy-button"><i class="
         </div>
 
         <div class="indentation">
-            <p>Настройка PPPoE с использованием nmcli:</p>
+            <p><h5>Настройка PPPoE с использованием nmcli:</h5></p>
             <div class="code-container">
                 <pre
                     class="code-block"><code class="language-bash">sudo nmcli connection add type pppoe con-name MyPPPoEConnection ifname enp3s0 username myUsername password myPassword</code></pre>
@@ -1015,6 +1016,35 @@ java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</c
             </div>
         </div>
 
+        <div class="indentation">
+            <p><h5>Кэширование метаданных репозиториев</h5></p>
+            <p class="inner-p">Команда в Fedora используется для создания или обновления 
+                кеша метаданных репозиториев. Она загружает данные о доступных пакетах из подключённых 
+                репозиториев и сохраняет их локально, чтобы ускорить будущие операции с 
+                <span><code class="language-bash">dnf5</code></span> (например,поиск, установку или 
+                обновление пакетов).</p>
+            <p class="inner-p2">Создать кеш для текущих репозиториев:</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo dnf5 makecache</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+            <p class="inner-p2">Принудительно обновить кеш (например, если подключены новые репозитории):</p>
+            <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo dnf5 makecache --refresh</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div class="indentation">
+            <p><h5>Полная информации о состоянии диска</h5></p>
+            <p class="inner-p">Параметр <b>241</b> (Lifetime_Writes_GiB) в выводе SMART отвечает за общее количество данных, 
+                записанных на диск за весь срок его эксплуатации.</p>
+            <div class="code-container">
+                <pre
+                    class="code-block"><code class="language-bash">sudo smartctl -a /dev/sda</code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
 
         <!-- <div class="indentation">
             <p><h5>Заголовок</h5></p>
