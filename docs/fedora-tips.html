@@ -662,7 +662,18 @@ Port: 9050</code></pre><button class="copy-button"><i class="fas fa-copy"></i></
                         class="code-block"><code class="language-bash">Configure Connection &gt; Add a bridge manually &gt; Вставляем мосты &gt; Connect</code></pre>
                     <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
-                <img alt="screenshot" src="img/tor-gui-manual.png" />
+                <img src="./img/tor-gui-manual.png" class="img-fluid" id="openModalButton">
+                <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body text-center">
+                                <img src="./img/tor-gui-manual.png" class="img-fluid modal-image"
+                                    onclick="$('#imageModal').modal('hide');">
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
             </ol>
             <p>Если нужно снова запустить службу <span><code class="language-bash">tor.service</code></span>, закрыть
                 браузер и выполнить команду:</p>
@@ -1076,11 +1087,12 @@ java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</c
         </footer>
     </div>
 
+    <script src="vendor/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="vendor/js/popper.min.js"></script>
     <script src="vendor/js/bootstrap.bundle.min.js" defer></script>
     <script src="vendor/js/prism.min.js" defer></script>
     <script src="vendor/js/prism-bash.min.js" defer></script>
     <script src="vendor/js-func/page-function.js"></script>
-    
 
 </body>
 
