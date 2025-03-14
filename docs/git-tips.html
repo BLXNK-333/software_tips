@@ -65,7 +65,8 @@
     <main class="container main-container">
         <h1>Git Tips</h1>
         <div class="indentation">
-            <p>Создает новый репозиторий Git и указывает на использование ветки с названием "main" в качестве основной
+            <p><h5>Создать репозиторий GIT</h5></p>
+            <p class="inner-p">Создает новый репозиторий Git и указывает на использование ветки с названием "main" в качестве основной
                 ветки
                 (вместо стандартной "master"). Это часто используется в контексте смены стандартного названия основной
                 ветки
@@ -76,7 +77,8 @@
             </div>
         </div>
         <div class="indentation">
-            <p>Добавить все измененные и новые файлы в рабочем каталоге в индекс для последующего коммита.</p>
+            <p><h5>Добавить в индекс</h5></p>
+            <p class="inner-p">Добавить все измененные и новые файлы в рабочем каталоге в индекс для последующего коммита.</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git add .</code></pre><button class="copy-button"><i
                         class="fas fa-copy"></i></button>
@@ -84,7 +86,8 @@
         </div>
 
         <div class="indentation">
-            <p>Команда <span><code class="language-bash">git commit</code></span> в Git используется для фиксации
+            <p><h5>COMMIT</h5></p>
+            <p class="inner-p">Команда <span><code class="language-bash">git commit</code></span> в Git используется для фиксации
                 (зафиксирования) изменений, внесенных в файлы вашего проекта. Коммит создает новую "точку сохранения" в
                 истории вашего проекта, которая позволяет вам вернуться к состоянию проекта на определенном этапе
                 разработки или сравнить изменения между коммитами.</p>
@@ -92,7 +95,7 @@
                 <pre class="code-block"><code class="language-bash">git commit -m "Initial commit"</code></pre><button
                     class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">Список опций:</p>
+            <p class="inner-p2">Список опций:</p>
             <ul>
                 <li><span><code class="language-bash">-a</code></span> или <code
                         class="language-bash">--all</code></span>: указывает Git'у автоматически включить все
@@ -111,7 +114,8 @@
 
 
         <div class="indentation">
-            <p>Добавляет удаленный репозиторий с именем "origin" и связывает его с указанным URL-адресом удаленного
+            <p><h5>Добавить репозиторий</h5></p>
+            <p class="inner-p">Добавляет удаленный репозиторий с именем "origin" и связывает его с указанным URL-адресом удаленного
                 репозитория.</p>
             <div class="code-container">
                 <pre
@@ -120,7 +124,8 @@
             </div>
         </div>
         <div class="indentation">
-            <p>Изменяет URL-адрес удаленного репозитория "origin" на указанный URL, включая ваш токен доступа, имя
+            <p><h5>Персональный токен GitHub</h5></p>
+            <p class="inner-p">Изменяет URL-адрес удаленного репозитория "origin" на указанный URL, включая ваш токен доступа, имя
                 пользователя и имя репозитория.</p>
             <div class="code-container">
                 <pre
@@ -129,7 +134,8 @@
             </div>
         </div>
         <div class="indentation">
-            <p>Извлекает изменения из удаленной ветки "main" в ваш локальный репозиторий и объединяет их с текущей
+            <p><h5>PULL</h5></p>
+            <p class="inner-p">Извлекает изменения из удаленной ветки "main" в ваш локальный репозиторий и объединяет их с текущей
                 локальной
                 веткой.</p>
             <div class="code-container">
@@ -138,7 +144,8 @@
             </div>
         </div>
         <div class="indentation">
-            <p>Используется для отправки (push) изменений из локальной ветки main в
+            <p><h5>Устанавливает tracking</h5></p>
+            <p class="inner-p">Используется для отправки (push) изменений из локальной ветки main в
                 удаленный репозиторий с именем origin. <br />
                 Опция <code class="language-bash">-u</code> или <code class="language-bash">--set-upstream</code>
                 устанавливает
@@ -152,7 +159,8 @@
             </div>
         </div>
         <div class="indentation">
-            <p>Используется для отправки (загрузки) локальных изменений в удаленный репозиторий. При использовании этой
+            <p><h5>PUSH</h5></p>
+            <p class="inner-p">Используется для отправки (загрузки) локальных изменений в удаленный репозиторий. При использовании этой
                 команды Git отправляет все изменения, которые были закоммичены в вашей текущей локальной ветке, на
                 удаленный
                 сервер.</p>
@@ -162,7 +170,8 @@
             </div>
         </div>
         <div class="indentation">
-            <p>Выводит список всех настроек Git в вашем локальном репозитории. Эти настройки могут включать данные
+            <p><h5>Список всех настроек Git</h5></p>
+            <p class="inner-p">Выводит список всех настроек Git в вашем локальном репозитории. Эти настройки могут включать данные
                 пользователя, настройки форматирования, конфигурацию удаленных репозиториев и многое другое.</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git config --list</code></pre><button
@@ -170,7 +179,8 @@
             </div>
         </div>
         <div class="indentation">
-            <p>Выводит историю коммитов в формате, где каждый коммит представлен сокращенным идентификатором, именем
+            <p><h5>История камитов</h5></p>
+            <p class="inner-p">Выводит историю коммитов в формате, где каждый коммит представлен сокращенным идентификатором, именем
                 автора,
                 и временем с момента его создания, а также отображает графическое представление ветвлений и объединений
                 коммитов.</p>
@@ -186,14 +196,15 @@
         </div>
 
         <div class="indentation">
-            <p>Запускает интерактивное перебазирование для последних двух коммитов на вашей текущей ветке. Эта команда
+            <p><h5>Интерактивный rebase</h5></p>
+            <p class="inner-p">Запускает интерактивное перебазирование для последних двух коммитов на вашей текущей ветке. Эта команда
                 позволяет переписывать историю коммитов, объединяя, изменяя порядок, сливая или редактируя коммиты перед
                 их применением к ветке.</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git rebase -i HEAD~2</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">Например, если вы хотите объединить второй коммит с первым, измените <span><code
+            <p class="inner-p2">Например, если вы хотите объединить второй коммит с первым, измените <span><code
                         class="language-bash">pick</code></span> на <span><code
                         class="language-bash">squash</code></span> для второго
                 коммита. Коммиты указаны в порядке возрастания времени создания (самый нижний -- самый свежий).</p>
@@ -202,7 +213,7 @@
 squash e0ca8b9  # The last commit</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">После объединения коммитов, если вы хотите отправить изменения в удаленный репозиторий,
+            <p class="inner-p2">После объединения коммитов, если вы хотите отправить изменения в удаленный репозиторий,
                 вам придется использовать команду:</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git push --force</code></pre>
@@ -211,7 +222,8 @@ squash e0ca8b9  # The last commit</code></pre>
         </div>
 
         <div class="indentation">
-            <p>Создает новую ветку с указанным именем и переключает текущую рабочую область на эту ветку. Это удобно,
+            <p><h5>Создать новую ветку</h5></p>
+            <p class="inner-p">Создает новую ветку с указанным именем и переключает текущую рабочую область на эту ветку. Это удобно,
                 когда ты хочешь создать новую ветку и сразу начать работу в ней.</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git checkout -b <название_новой_ветки></code></pre>
@@ -220,14 +232,15 @@ squash e0ca8b9  # The last commit</code></pre>
         </div>
 
         <div class="indentation">
-            <p>Для вывода списка веток, которые существуют в вашем репозитории, но не были слиты (не объединены) с
+            <p><h5>Вывод неслитых веток</h5></p>
+            <p class="inner-p">Для вывода списка веток, которые существуют в вашем репозитории, но не были слиты (не объединены) с
                 текущей веткой. Это полезно для определения веток, в которых содержится непринятый код или незавершенная
                 работа.</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git branch --no-merged</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">Пример более подробного вывода. Краткий хэш, имя и дата автора:</p>
+            <p class="inner-p2">Пример более подробного вывода. Краткий хэш, имя и дата автора:</p>
             <div class="code-container">
                 <pre
                     class="code-block"><code class="language-bash">git for-each-ref --format='%(objectname:short) %(refname:short) %(authordate:relative)' refs/heads --no-merged</code></pre>
@@ -236,10 +249,11 @@ squash e0ca8b9  # The last commit</code></pre>
         </div>
 
         <div class="indentation">
-            <p>Если каталог не игнорируется, возможно, он уже был добавлен в репозиторий до добавления в .gitignore. В
-                таком случае Git будет следить за изменениями в этом каталоге, игнорируя только изменения в .gitignore
+            <p><h5>Удалить папку из репозитория</h5></p>
+            <p class="inner-p">Если каталог не игнорируется, возможно, он уже был добавлен в репозиторий до добавления в <code class="language-bash">.gitignore</code>. В
+                таком случае Git будет следить за изменениями в этом каталоге, игнорируя только изменения в <code class="language-bash">.gitignore</code>
                 после того, как они были применены.</p>
-            <p class="inner-p">Чтобы исправить это, вам нужно удалить каталог из репозитория и зафиксировать это
+            <p class="inner-p2">Чтобы исправить это, вам нужно удалить каталог из репозитория и зафиксировать это
                 изменение. Для этого
                 выполните следующие команды в терминале (поменяйте "directory_name" на имя вашего каталога):</p>
             <div class="code-container">
@@ -248,32 +262,33 @@ git commit -m "Remove directory_name from the repository"
 git push origin master (или имя вашей ветки)</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">После этого Git перестанет отслеживать изменения в этом каталоге.</p>
+            <p class="inner-p2">После этого Git перестанет отслеживать изменения в этом каталоге.</p>
         </div>
 
         <div class="indentation">
-            <p>Добавить незначительные правки в последний коммит и, при этом, избежать засорения истории
+            <p><h5>Добавить в последний камит</h5></p>
+            <p class="inner-p">Добавить незначительные правки в последний коммит и, при этом, избежать засорения истории
                 сообщениями вида «Ой, забыл добавить файл» или «Исправление грамматической ошибки».</p>
-            <p class="inner-p">Пример:</p>
+            <p class="inner-p2">Пример:</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git commit -m 'Initial commit'  # Сделали commit
 git add forgotten_file  # Захотели добавить файл</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
             <br>
-            <p class="inner-p">После манипуляций:</p>
+            <p class="inner-p2">После манипуляций:</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git commit --amend</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">Очень важно понимать, что когда вы вносите правки в последний коммит, вы не столько
+            <p class="inner-p2">Очень важно понимать, что когда вы вносите правки в последний коммит, вы не столько
                 исправляете его, сколько заменяете новым, который полностью его перезаписывает. В результате всё
                 выглядит так, будто первоначальный коммит никогда не существовал, а так же он больше не появится в
                 истории вашего репозитория.</p>
         </div>
 
         <div class="indentation">
-            <p>Для исключения файла из индекса:</p>
+            <p><h5>Исключить файл из индекса</h5></p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git reset HEAD &lt;file_name&gt;</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
@@ -286,7 +301,8 @@ git add forgotten_file  # Захотели добавить файл</code></pre
         </div>
 
         <div class="indentation">
-            <p>Чтобы отменить изменения в файле и вернуть его к состоянию, которое было в последнем коммите</p>
+            <p><h5>Сделать Rollback</h5></p>
+            <p class="inner-p">Чтобы отменить изменения в файле и вернуть его к состоянию, которое было в последнем коммите</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git checkout -- &lt;file_name&gt;</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
@@ -296,19 +312,19 @@ git add forgotten_file  # Захотели добавить файл</code></pre
                 <pre class="code-block"><code class="language-bash">git restore &lt;file_name&gt;</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">Важно понимать, что все локальные изменения в файле пропадут — Git просто заменит его
+            <p class="inner-p2">Важно понимать, что все локальные изменения в файле пропадут — Git просто заменит его
                 версией из последнего коммита. Ни в коем случае не используйте эту команду, если вы не уверены, что
                 изменения в файле вам не нужны.</p>
         </div>
         <div class="indentation">
-            <p>Удаление ветки в Git. Обратите внимание, что удаление ветки является необратимым действием, поэтому
-                убедитесь,
-                что вы действительно хотите удалить ветку, прежде чем выполнить эту команду.</p>
+            <p><h5>Удаление ветки в Git.</h5><p> 
+            <p class="inner-p">Обратите внимание, что удаление ветки является необратимым действием, поэтому
+                убедитесь, что вы действительно хотите удалить ветку, прежде чем выполнить эту команду.</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git branch -d feature</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">Список опций:</p>
+            <p class="inner-p2">Список опций:</p>
             <ul>
                 <li><span><code class="language-bash">-d</code></span>: если ветка, которую вы пытаетесь удалить, не
                     была полностью слита с текущей веткой, Git выдаст предупреждение и не удалит ветку.
@@ -317,12 +333,12 @@ git add forgotten_file  # Захотели добавить файл</code></pre
             </ul>
         </div>
         <div class="indentation">
-            <p>Создание аннотированного тега в Git.</p>
+            <p><h5>Создание аннотированного тега в Git.</h5></p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git tag -a v1.4 -m "my version 1.4"</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">Список опций:</p>
+            <p class="inner-p2">Список опций:</p>
             <ul>
                 <li><span><code class="language-bash">-a</code></span>: указывает, что тэг аннотированный.
                 <li><span><code class="language-bash">-m</code></span>: задаёт сообщение, которое будет храниться вместе
@@ -330,14 +346,14 @@ git add forgotten_file  # Захотели добавить файл</code></pre
             </ul>
         </div>
         <div class="indentation">
-            <p>Создание легковесного тега в Git.</p>
+            <p><h5>Создание легковесного тега в Git.</h5></p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git tag v1.4-lw</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
         </div>
         <div class="indentation">
-            <p>Удаление тега в Git.</p>
+            <p><h5>Удаление тега в Git.</h5></p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git tag -d v1.4-lw</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
@@ -345,7 +361,7 @@ git add forgotten_file  # Захотели добавить файл</code></pre
 
         </div>
         <div class="indentation">
-            <p>Удаление тега из внешнего репозитория.</p>
+            <p><h5>Удаление тега из внешнего репозитория.</h5></p>
             <div class="code-container">
                 <pre
                     class="code-block"><code class="language-bash">git push <remote> :refs/tags/&lt;tagname&gt;</code></pre>
@@ -359,7 +375,7 @@ git add forgotten_file  # Захотели добавить файл</code></pre
             </div>
         </div>
         <div class="indentation">
-            <p>Добавить тег к существующиму камиту.</p>
+            <p><h5>Добавить тег к существующиму камиту.</h5></p>
             <p class="inner-p">Пример:</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git tag -a v1.2 9fceb02</code></pre>
@@ -367,7 +383,7 @@ git add forgotten_file  # Захотели добавить файл</code></pre
             </div>
         </div>
         <div class="indentation">
-            <p>Переход на тег.</p>
+            <p><h5>Переход на тег.</h5></p>
             <p class="inner-p">Пример:</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git checkout v2.0.0</code></pre>
@@ -375,14 +391,14 @@ git add forgotten_file  # Захотели добавить файл</code></pre
             </div>
         </div>
         <div class="indentation">
-            <p><b>Обмен тегами.</b></p>
+            <p><h5>Обмен тегами.</h5></p>
             <p class="inner-p">По умолчанию, команда <span><code class="language-bash">git push</code></span> не
                 отправляет теги на удалённые сервера. После создания теги нужно отправлять явно на удалённый сервер.</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git push origin v1.5</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
-            <p class="inner-p">Для всех тэгов:</p>
+            <p class="inner-p2">Для всех тэгов:</p>
             <div class="code-container">
                 <pre class="code-block"><code class="language-bash">git push origin --tags</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
@@ -390,55 +406,55 @@ git add forgotten_file  # Захотели добавить файл</code></pre
         </div>
 
         <div class="indentation">
-            <p><b>Перебазирование текущей ветки.</b></p>
+            <p><h5>Перебазирование текущей ветки.</h5></p>
             <p class="inner-p">В результате выполнения этих команд ваша ветка <span><code class="language-bash">main</code></span> будет
                 содержать изменения, внесённые веткой <span><code class="language-bash">double_feature</code></span>, и
                 ветка <span><code class="language-bash">double_feature</code></span> будет удалена.
             </p>
             <ul>
                 <li>
-                    <div class="code-container">
-                        <pre class="code-block"><code class="language-bash">git rebase main</code></pre>
-                        <button class="copy-button"><i class="fas fa-copy"></i></button>
-                    </div>
-                    <p class="inner-p">Эта команда выполняет перебазирование текущей ветки на ветку <span><code
+                    <p class="inner-p2">Эта команда выполняет перебазирование текущей ветки на ветку <span><code
                                 class="language-bash">main</code></span>. В результате история коммитов вашей текущей
                         ветки
                         будет переписана поверх истории коммитов из ветки <span><code
                                 class="language-bash">main</code></span>.
                     </p>
+                    <div class="code-container">
+                        <pre class="code-block"><code class="language-bash">git rebase main</code></pre>
+                        <button class="copy-button"><i class="fas fa-copy"></i></button>
+                    </div>
                 </li>
                 <li>
+                    <p class="inner-p2">Эта команда переключает вас на ветку <span><code
+                        class="language-bash">main</code></span>. Теперь ваш рабочий каталог содержит содержимое
+                            последнего коммита в ветке <span><code class="language-bash">main</code></span>.
+                    </p>
                     <div class="code-container">
                         <pre class="code-block"><code class="language-bash">git checkout main</code></pre>
                         <button class="copy-button"><i class="fas fa-copy"></i></button>
                     </div>
-                    <p class="inner-p">Эта команда переключает вас на ветку <span><code
-                                class="language-bash">main</code></span>. Теперь ваш рабочий каталог содержит содержимое
-                        последнего коммита в ветке <span><code class="language-bash">main</code></span>.
-                    </p>
                 </li>
                 <li>
-                    <div class="code-container">
-                        <pre class="code-block"><code class="language-bash">git merge double_feature</code></pre>
-                        <button class="copy-button"><i class="fas fa-copy"></i></button>
-                    </div>
-                    <p class="inner-p">Здесь вы сливаете ветку <span><code class="language-bash">main</code></span> в
+                    <p class="inner-p2">Здесь вы сливаете ветку <span><code class="language-bash">main</code></span> в
                         текущую ветку <span><code class="language-bash">main</code></span>. Эта команда объединяет
                         изменения из ветки <span><code class="language-bash">double_feature</code></span> с изменениями
                         в вашей ветке <span><code class="language-bash">main</code></span>.
                     </p>
-                </li>
-                <li>
                     <div class="code-container">
-                        <pre class="code-block"><code class="language-bash">git branch -d double_feature</code></pre>
+                        <pre class="code-block"><code class="language-bash">git merge double_feature</code></pre>
                         <button class="copy-button"><i class="fas fa-copy"></i></button>
                     </div>
-                    <p class="inner-p">Эта команда удаляет ветку <span><code
+                </li>
+                <li>
+                    <p class="inner-p2">Эта команда удаляет ветку <span><code
                                 class="language-bash">double_feature</code></span>. После успешного слияния её изменений
                         в ветку <span><code class="language-bash">main</code></span> она становится ненужной и может
                         быть безопасно удалена.
                     </p>
+                    <div class="code-container">
+                        <pre class="code-block"><code class="language-bash">git branch -d double_feature</code></pre>
+                        <button class="copy-button"><i class="fas fa-copy"></i></button>
+                    </div>
                 </li>
             </ul>
         </div>
