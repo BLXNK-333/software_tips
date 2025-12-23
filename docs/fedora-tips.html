@@ -1059,39 +1059,6 @@ java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</c
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
         </div>
-        
-        <div class="indentation">
-            <p><h5>Обновление пакетов системы</h5></p>
-            <p class="inner-p">При проблемах с доступом к дефолтным репозиториям (на примере fedora 42), можно сделать так:</p>
-            
-            <p class="inner-p2">Создать файл репозитория, с собственным зеркалом:</p>
-            <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">sudo nvim /etc/yum.repos.d/updates-local.repo</code></pre>
-                <button class="copy-button"><i class="fas fa-copy"></i></button>
-            </div>
-            
-            <p class="inner-p2">Добавить в него этот конфиг и сохранить:</p>
-            <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">[updates-local]
-name=Fedora 42 Updates (RU Mirror)
-baseurl=http://fedora-mirror02.rbc.ru/pub/fedora/linux/updates/42/Everything/x86_64/
-enabled=1
-gpgcheck=1</code></pre>
-                <button class="copy-button"><i class="fas fa-copy"></i></button>
-            </div>
-            
-            <p class="inner-p2">Для текущей сессии терминала, отключаем другие репозитории и запускаем update через свой:</p>
-            <div class="code-container">
-                <pre
-                    class="code-block"><code class="language-bash">sudo dnf clean all
-sudo dnf --disablerepo="*" --enablerepo="updates-local" update
-</code></pre>
-                <button class="copy-button"><i class="fas fa-copy"></i></button>
-            </div>
-            
-        </div>
 
         <!-- <div class="indentation">
             <p><h5>Заголовок</h5></p>
