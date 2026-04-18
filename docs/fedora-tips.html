@@ -94,12 +94,12 @@
         <div class="indentation">
             <p>Разархивировать файлы из архива .tar / .tar.gz:</p>
             <div class="code-container">
-                <pre class="code-block"><code class="language-bash">tar -xvf archive.tar directory/</code></pre>
+                <pre class="code-block"><code class="language-bash">tar -xvf archive.tar -C /directory/</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
             <br>
             <div class="code-container">
-                <pre class="code-block"><code class="language-bash">tar -xzvf archive.tar.gz directory/</code></pre>
+                <pre class="code-block"><code class="language-bash">tar -xzvf archive.tar.gz -C /directory/</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
             <br>
@@ -547,7 +547,7 @@ cost=100</code></pre><button class="copy-button"><i class="fas fa-copy"></i></bu
                         class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
                 <li>
-                    <p class="inner-p">Посещаем сайт, выбираем опцию "None" и получаем список мостов:</p>
+                    <p class="inner-p">Посещаем сайт, выбираем опцию "None" (если нужна обфускация то obfs4, также нужно доставить пакет в систему) и получаем список мостов:</p>
                 </li>
                 <div class="code-container">
                     <pre
@@ -570,13 +570,6 @@ UseBridges 1
 SOCKSPort 9050
 ExcludeExitNodes {RU},{BY}
 StrictNodes 1
-
-# Увеличиваем время жизни цепочек, так как используем
-# этот tor proxy, только для обхода блокировок.
-ExitNodes {DE}
-MaxCircuitDirtiness 14400
-TrackHostExits *.chatgpt.com *.google.com *stackoverflow.com
-TrackHostExitsExpire 14400
 
 # Vanilla Bridges:
 bridge 23.88.56.229:18680 0131800F17ACED0D6CF979F3D0910D63E5F6015A
@@ -1051,13 +1044,59 @@ java    12705 blxnk   67u  IPv6 134779      0t0  TCP localhost:63342 (LISTEN)</c
 
         <div class="indentation">
             <p><h5>Полная информации о состоянии диска</h5></p>
-            <p class="inner-p">Параметр <b>241</b> (Lifetime_Writes_GiB) в выводе SMART отвечает за общее количество данных, 
+            <p class="inner-p">Параметр <b>241</b> (Lifetime_Writes_GiB) в выводе SMART отвечает за общее количество данных,
                 записанных на диск за весь срок его эксплуатации.</p>
             <div class="code-container">
                 <pre
                     class="code-block"><code class="language-bash">sudo smartctl -a /dev/sda</code></pre>
                 <button class="copy-button"><i class="fas fa-copy"></i></button>
             </div>
+        </div>
+
+        <div class="indentation">
+            <p><h5>Настройка TUN-mode в Happ-Desktop</h5></p>
+            <p class="inner-p">Разберём по шагам:</p>
+
+            <ol>
+                <li>
+                    <p class="inner-p">
+                        Включаем <b>IP forwarding</b>, чтобы пакеты могли пересылаться между интерфейсами (Wi-Fi ↔ TUN).
+                    </p>
+
+                    <div class="code-container">
+                        <pre class="code-block"><code class="language-bash">sudo sysctl -w net.ipv4.ip_forward=1</code></pre>
+                        <button class="copy-button"><i class="fas fa-copy"></i></button>
+                    </div>
+                </li>
+
+                <li>
+                    <p class="inner-p">
+                        Настраиваем <b>firewalld</b>: добавляем интерфейс TUN, включаем NAT и форвардинг.
+                    </p>
+
+                    <div class="code-container">
+                <pre class="code-block"><code class="language-bash">sudo firewall-cmd --permanent --new-zone=vpn
+sudo firewall-cmd --permanent --zone=vpn --add-interface=tun0
+sudo firewall-cmd --permanent --zone=vpn --add-masquerade
+sudo firewall-cmd --permanent --zone=vpn --add-forward
+sudo firewall-cmd --permanent --zone=vpn --set-target ACCEPT
+
+sudo firewall-cmd --reload</code></pre>
+                        <button class="copy-button"><i class="fas fa-copy"></i></button>
+                    </div>
+                </li>
+
+                <li>
+                    <p class="inner-p">
+                        В <b>Happ-Desktop</b> включаем <b>TUN mode → system</b> и переподключаемся к серверу.
+                    </p>
+                </li>
+            </ol>
+
+            <p class="inner-p">
+                <b>Результат:</b> VPN работает через TUN, трафик корректно форвардится и маскируется, основной интернет
+                остаётся доступен.
+            </p>
         </div>
 
         <!-- <div class="indentation">
