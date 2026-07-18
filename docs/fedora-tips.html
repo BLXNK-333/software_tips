@@ -1098,6 +1098,143 @@ sudo firewall-cmd --reload</code></pre>
                 остаётся доступен.
             </p>
         </div>
+	
+	<div class="indentation">
+	    <p><h5>Настройка zapret в режиме SOCKS5-прокси</h5></p>
+
+	    <p class="inner-p">
+		Настраиваем <b>zapret</b> через <b>tpws SOCKS mode</b>. В этом режиме zapret не перехватывает весь трафик
+		системы, а работает как локальный SOCKS5-прокси на порту <b>987</b>.
+	    </p>
+
+	    <ol>
+		<li>
+		    <p class="inner-p">
+		        Запускаем установку и выбираем тип firewall. Для Fedora используем <b>nftables</b>.
+		    </p>
+
+		    <div class="code-container">
+		        <pre class="code-block"><code class="language-bash">cd /opt/zapret
+sudo ./install_easy.sh</code></pre>
+		        <button class="copy-button"><i class="fas fa-copy"></i></button>
+		    </div>
+
+		    <p class="inner-p">
+		        В процессе установки выбираем:
+		    </p>
+
+		    <div class="code-container">
+			<pre class="code-block"><code class="language-text">select firewall type:
+2 : nftables
+
+enable ipv6 support:
+N
+
+select flow offloading:
+1 : none
+
+select filtering:
+1 : none
+
+enable tpws socks mode on port 987:
+Y
+
+enable tpws transparent mode:
+N
+
+enable nfqws:
+N
+
+LAN interface:
+1 : NONE
+
+WAN interface:
+1 : ANY</code></pre>
+		    <button class="copy-button"><i class="fas fa-copy"></i></button>
+		    </div>
+		</li>
+
+
+		<li>
+		    <p class="inner-p">
+		        После установки проверяем состояние сервиса <b>zapret</b>.
+		    </p>
+
+		    <div class="code-container">
+		        <pre class="code-block"><code class="language-bash">systemctl status zapret</code></pre>
+		        <button class="copy-button"><i class="fas fa-copy"></i></button>
+		    </div>
+
+		    <p class="inner-p">
+		        Сервис должен быть активен:
+		    </p>
+
+		    <div class="code-container">
+		        <pre class="code-block"><code class="language-text">Active: active (running)</code></pre>
+		        <button class="copy-button"><i class="fas fa-copy"></i></button>
+		    </div>
+		</li>
+
+
+		<li>
+		    <p class="inner-p">
+		        Проверяем, что <b>tpws</b> слушает локальный SOCKS5-порт.
+		    </p>
+
+		    <div class="code-container">
+		        <pre class="code-block"><code class="language-bash">ss -lntp | grep 987</code></pre>
+		        <button class="copy-button"><i class="fas fa-copy"></i></button>
+		    </div>
+
+		    <p class="inner-p">
+		        Ожидаемый результат:
+		    </p>
+
+		    <div class="code-container">
+		        <pre class="code-block"><code class="language-text">LISTEN 0 10 127.0.0.1:987</code></pre>
+		        <button class="copy-button"><i class="fas fa-copy"></i></button>
+		    </div>
+		</li>
+
+
+		<li>
+		    <p class="inner-p">
+		        Добавляем SOCKS5-прокси в приложение или браузер:
+		    </p>
+
+		    <div class="code-container">
+		        <pre class="code-block"><code class="language-text">Тип прокси: SOCKS5
+Адрес: 127.0.0.1
+Порт: 987</code></pre>
+		        <button class="copy-button"><i class="fas fa-copy"></i></button>
+		    </div>
+		</li>
+
+
+		<li>
+		    <p class="inner-p">
+		        Проверяем работу прокси через браузер или curl.
+		    </p>
+
+		    <div class="code-container">
+		        <pre class="code-block"><code class="language-bash">curl --socks5 127.0.0.1:987 https://example.com</code></pre>
+		        <button class="copy-button"><i class="fas fa-copy"></i></button>
+		    </div>
+		</li>
+	    </ol>
+
+
+	    <p class="inner-p">
+		<b>Результат:</b> zapret работает как локальный SOCKS5-прокси через <b>tpws</b>. 
+		Трафик приложений, настроенных на использование прокси <b>127.0.0.1:987</b>, проходит через механизм обхода блокировок.
+		Системный трафик напрямую не изменяется.
+	    </p>
+
+	    <p class="inner-p">
+		<b>Примечание:</b> режим <b>transparent mode</b> и <b>nfqws</b> не используются, поэтому конфликтов с VPN
+		через TUN-интерфейс обычно не возникает.
+	    </p>
+	</div>
 
         <!-- <div class="indentation">
             <p><h5>Заголовок</h5></p>
